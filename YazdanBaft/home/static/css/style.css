@@ -1,0 +1,254 @@
+@font-face {
+    font-family: font1;
+    src: url(../fonts/Vazir-Regular.ttf);
+}
+@font-face {
+    font-family: font2;
+    src: url(../fonts/Vazir-Black.ttf);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all .2s;
+}
+:root {
+  --primaryColor: #a82424;
+  --secondaryColor: #52353d;
+  --mainDark: #52353d;
+  --mainWhite: #fff;
+  --mainGrey: #e5e5e5;
+  --slantedText: "Grand Hotel", cursive;
+  --mainTransition: all 0.3s linear;
+  --letterSpacing: 0.5rem;
+}
+body{
+    height: 100vh;
+    font-family: font1;
+    direction: rtl;
+}
+.container-fluid{
+    width: 100%;
+    height: auto;
+}
+.nav{
+    border-radius: 0 0 50% 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 150px;
+    padding-right: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    box-shadow: 0 0 10px #000;
+    background: rgb(50, 50, 65);
+}
+#chk1{
+    display: none;
+}
+ion-icon {
+    cursor: pointer;
+    font-size: 20pt;
+    color: white;
+}
+ion-icon:hover {
+    color: #6a6a6a;
+}
+.menu-btn{
+    font-size: 30pt;
+    margin-top: 15px;
+}
+.nav .logo{
+    flex: 1;
+    color:#fff;
+    font-family: font2;
+    text-transform: uppercase;
+    font-size: 28pt;
+}
+.nav .search-box{
+    flex: 1;
+    position: relative;
+}
+.search-box input {
+    width:100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    background:#f2f2f2;
+    border-radius: 10px;
+    font-family: font1;
+    color:black;
+    font-size: 16px;
+    padding-left: 5px;
+    padding-right: 40px;
+    text-align: center;
+}
+.search-box button {
+    cursor: pointer;
+    width:40px;
+    height: 40px;
+    border-radius: 10px;
+    border:none;
+    position: absolute;
+    top:0;
+    right: 0;
+    transform: scale(0.9);
+    background: rgb(23, 39, 107);
+    color: #fff;
+}
+.search-box button:hover{
+    background: rgb(0, 56, 255);
+}
+.nav ul {
+    flex:2;
+    display: flex;
+    justify-content: space-evenly;
+}
+.nav ul li{
+    list-style: none;
+}
+.nav ul li a{
+    text-decoration: none;
+    color:#fff;
+    font-size: 16pt;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    transition: all .4s;
+}
+.nav ul li a:hover{
+    color: #6a6a6a;
+}
+.nav .menu{
+    font-size: 2.5em;
+    display: none;
+}
+.menu ion-icon:hover{
+    transform: rotate(45deg);
+}
+@media screen and (max-width: 1100px) {
+    .nav ul {
+        display: none;
+        position: fixed;
+        top: 16%;
+        right: 0;
+        background: rgba(0, 0, 0, 0.5);
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        transition: right 0.5s linear;
+    }
+    .nav ul.show {
+        display: flex;
+    }
+    .nav ul li {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+    .nav .menu {
+        display: block;
+        width: 50px;
+        text-align: center;
+    }
+    #chk1:checked ~ ul {
+        right: 0;
+    }
+    .nav ul li a {
+        font-size: 20pt;
+    }
+    .nav .logo {
+        display: none;
+    }
+    .search-box {
+        flex: 2;
+        margin-right: auto;
+    }
+    .search-box input {
+        width: 80%;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+    .search-box button {
+        width: 20%;
+    }
+}
+/* start */
+header{
+    text-align: center;
+    position: relative;
+    margin-top: 70px;
+    width: 100%;
+    height: 100%;
+}
+.filled-shape{
+    width: 700px;
+    height: 100%;
+    background: linear-gradient(
+         to left,
+         rgb(52, 152, 219),
+         rgb(27, 64, 118)
+    );
+    border-radius: 50% 0 0 50%;
+    text-align: center;
+}
+.filled-shape img{
+    margin-top: 100px;
+    width: 80%;
+}
+.filled-shape h1{
+    margin-right: -50px;
+    color: white;
+    font-family: font2;
+    text-align: center;
+}
+.filled-shape figcaption{
+    margin-right: 20px;
+    width: 600px;
+    color: #ffffff;
+}
+.about-sack{
+    text-align: center;
+    font-size: 14pt;
+    width: 400px;
+    position: absolute;
+    right: 60%;
+    bottom: 30%;
+}
+@media screen and (max-width: 1200px){
+    .filled-shape{
+        width: auto;
+        max-width: 700px;
+        min-width: 350px;
+        border-radius: 30px;
+        margin: 20%;
+    }
+    .about-sack{
+        position: relative;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        margin-top: 50px;
+    }
+    .filled-shape h1{
+    margin-right: 0;
+    color: white;
+    font-family: font2;
+    text-align: center;
+    }
+    .filled-shape figcaption{
+        margin-right: 0;
+        width: 100%;
+        color: #ffffff;
+    }
+}
+@media screen and (max-width: 600px){
+    .filled-shape{
+        width: 100%;
+        border-radius: 30px;
+        margin: 0;
+    }
+}
