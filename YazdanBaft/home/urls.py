@@ -5,4 +5,6 @@ from . import views
 urlpatterns = [
     path('', RedirectView.as_view(url="/home", permanent=True)),
     path('home/', views.home),
+    path('about-us/', views.home),
+    path('gallery/', views.home),
 ]

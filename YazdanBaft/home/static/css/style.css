@@ -126,13 +126,13 @@ ion-icon:hover {
     display: none;
 }
 .menu ion-icon:hover{
-    transform: rotate(45deg);
+    transform: rotate(90deg);
 }
 @media screen and (max-width: 1100px) {
     .nav ul {
         display: none;
         position: fixed;
-        top: 16%;
+        top: 0;
         right: 0;
         background: rgba(0, 0, 0, 0.5);
         height: 100%;
@@ -176,17 +176,35 @@ ion-icon:hover {
         width: 20%;
     }
 }
+#scrollBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgb(50, 50, 65);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#scrollBtn.show {
+    display: block;
+}
 /* start */
 header{
+    border-bottom-style: groove;
     text-align: center;
     position: relative;
     margin-top: 70px;
     width: 100%;
-    height: 100%;
 }
 .filled-shape{
     width: 700px;
-    height: 100%;
+    height: 1000px;
     background: linear-gradient(
          to left,
          rgb(52, 152, 219),
@@ -198,17 +216,20 @@ header{
 .filled-shape img{
     margin-top: 100px;
     width: 80%;
+    animation: loadtransform 3s;
 }
 .filled-shape h1{
     margin-right: -50px;
     color: white;
     font-family: font2;
     text-align: center;
+    animation: loadtransform 3s;
 }
 .filled-shape figcaption{
     margin-right: 20px;
     width: 600px;
     color: #ffffff;
+    animation: loadtransform 3s;
 }
 .about-sack{
     text-align: center;
@@ -217,38 +238,244 @@ header{
     position: absolute;
     right: 60%;
     bottom: 30%;
+    animation: loadtransform 3s;
 }
 @media screen and (max-width: 1200px){
+    header{
+        margin-top: 60px;
+    }
     .filled-shape{
-        width: auto;
-        max-width: 700px;
-        min-width: 350px;
-        border-radius: 30px;
-        margin: 20%;
+        margin-top: 30px;
+        padding: 20px;
+        width: 100%;
+        height: 680px;
+        border-radius: 0;
+        margin: 0;
+    }
+    .filled-shape img{
+        margin-top: 50px;
+        width: 80%;
+        animation: loadtransformws 3s;
     }
     .about-sack{
+        margin-top: 30px;
+        padding: 20px;
         position: relative;
         right: 0;
         bottom: 0;
         width: 100%;
-        margin-top: 50px;
+        animation: loadtransformws 3s;
     }
     .filled-shape h1{
-    margin-right: 0;
-    color: white;
-    font-family: font2;
-    text-align: center;
+        margin-right: 0;
+        color: white;
+        font-family: font2;
+        text-align: center;
+        animation: loadtransformws 3s;
     }
     .filled-shape figcaption{
         margin-right: 0;
         width: 100%;
         color: #ffffff;
+        animation: loadtransformws 3s;
     }
 }
-@media screen and (max-width: 600px){
-    .filled-shape{
-        width: 100%;
-        border-radius: 30px;
-        margin: 0;
+@keyframes loadtransform{
+    0%{
+        opacity: 0;
+        scale: 1.2;
+    }
+    100%{
+        opacity: 1;
+        scale: 1;
     }
 }
+@keyframes loadtransformws{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+/* skills */
+.skillIcon i{
+    color: black;
+}
+.skillIcon a {
+    color: black;
+    text-decoration: none;
+}
+.skills {
+    background: var(--mainGrey);
+}
+.skill {
+    padding: 2.5rem 0;
+    text-align: center;
+    transition: var(--mainTransition);
+}
+.skill-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    transition: var(--mainTransition);
+    display: inline-block;
+}
+.skill-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    color: var(--primaryColor);
+    transition: var(--mainTransition);
+}
+.skill-text {
+    line-height: 1.5;
+    font-size: 16px;
+    max-width: 13rem;
+    margin: 0 auto;
+}
+.skill:hover {
+    background: #a82424;
+}
+.skill:hover .skill-title {
+    color: var(--mainWhite);
+}
+.skill:hover .skill-icon {
+    transform: translateY(-5px);
+}
+@media screen and (min-width: 576px) {
+.skill {
+    float: left;
+    width: 50%;
+}
+}
+@media screen and (min-width: 1200px) {
+.skill {
+    width: 25%;
+}
+}
+.h2{
+    text-align: center;
+    font-family: font2;
+}
+.row{
+    width: 100%;
+    padding: 100px;
+    border-bottom-style: groove;
+    transition: .5s;
+    text-align: center;
+}
+.row .col{
+    margin-top: 3px;
+    margin-right: 5px;
+    display: inline-block;
+    width: 400px;
+    height: 500px;
+    background-color: #b6b6b677;
+    text-align: center;
+    border-radius: 5px;
+}
+.col:hover{
+    transform: scale(1.04);
+}
+.col figure figcaption{
+    padding: 5px;
+    height: 100px;
+}
+.col img{
+    border: none;
+    border-radius: 10px;
+    width: 300px;
+    height: 300px;
+}
+.more{
+    font-family: font2;
+    width: 120px;
+    height: 40px;
+    background-color: #3d3d3d;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    transition: .6s;
+}
+.more:hover{
+    background-color: #7a7a7a;
+    transform: scale(1.2);
+}
+@media screen and (max-width: 625px){
+    .row{
+        padding: 0;
+    }
+    .row .col{
+        width: 300px;
+    }
+    .col img{
+        width: 250px;
+        height: 250px;
+    }
+}
+/* gallery */
+.gallery-row{
+    text-align: center;
+    width: 100%;
+    padding: 30px;
+    border-bottom-style: dashed;
+}
+.gallery-col{
+    display: inline-block;
+    width: auto;
+}
+.gallery-col img{
+    border-color: wheat;
+    border-style: groove;
+}
+@media screen and (max-width:400px) {
+    .gallery-row{
+        padding: 0;
+    }
+}
+/* cert */
+.cert-row{
+    width: 100%;
+    padding: 30px 300px;
+}
+.img-cert{
+    width: 100%;
+}
+@media screen and (max-width:1500px) {
+    .cert-row{
+        padding: 30px 50px;
+    }
+}
+/* footer */
+.footer {
+    border-radius: 50% 50% 0 0;
+    background-color: rgb(50, 50, 65);
+    text-align: center;
+    padding: 60px;
+}
+.social-icon {
+    color: var(--mainWhite);
+    font-size: 1.3rem;
+    margin-right: 1rem;
+    transition: var(--mainTransition);
+}
+.social-icon:hover {
+    color: var(--primaryColor);
+}
+.footer-text {
+    text-transform: uppercase;
+    color: var(--mainWhite);
+    margin-top: 1rem;
+    font-size: 0.85rem;
+}
+.footer a {
+    text-decoration: none;
+}
+.topic{
+    text-align: center;
+    font-family: 'poppins', sans-serif;
+    font-size: 30px;
+    color: #162938;
+}
+/* footer */

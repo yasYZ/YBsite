@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محصولات - شرکت یزدان بافت ایرانیان</title>
+    <link rel="stylesheet" href="../static/css/products.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="../static/images/logoyazdan_32x32.ico" type="image/x-icon">
+</head>
+<body>
+    <nav class="nav">
+        <div class="menu">
+            <label for="chk1">
+                <ion-icon class="menu-btn" name="menu"></ion-icon>
+            </label>
+        </div>
+        <div class="logo"><a href="/home"><img src="../static/images/logo-yazdan%20(2).png"></a></div>
+        <div class="search-box">
+            <form>
+                <label>
+                    <input type ="text" name ="search" id ="srch" placeholder="جست و جو">
+                </label>
+                <button type ="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <ul>
+            <li><a href="/home">خانه</a></li>
+            <li><a href="/product">محصولات</a></li>
+            <li><a href="/about-us">درباره ما</a></li>
+            <li>
+                <a href="#"><ion-icon name="call-outline"></ion-icon></a>
+                <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+                <a href="#"><ion-icon name="location-sharp"></ion-icon></a>
+            </li>
+        </ul>
+    </nav>   
+    <section class="row-p">
+        <article class="col-p">
+            <figure class="figure">
+                <img src="../static/images/bigbag1.png">
+                <h2>بیتو بگ</h2>
+                <figcaption></figcaption>
+            </figure>
+        </article>
+        <article class="col-p">
+            <figure class="figure">
+                <img src="../static/images/bigbag1.png">
+                <h2>بیتو بگ</h2>
+                <figcaption></figcaption>
+            </figure>
+        </article>
+        <article class="col-p">
+            <figure class="figure">
+                <img src="../static/images/bigbag1.png">
+                <h2>بیتو بگ</h2>
+                <figcaption></figcaption>
+            </figure>
+        </article>
+        <article class="col-p">
+            <figure class="figure">
+                <img src="../static/images/bigbag1.png">
+                <h2>بیتو بگ</h2>
+                <figcaption></figcaption>
+            </figure>
+        </article>
+        <article class="col-p">
+            <figure class="figure">
+                <img src="../static/images/bigbag1.png">
+                <h2>بیتو بگ</h2>
+                <figcaption></figcaption>
+            </figure>
+        </article>
+        <article class="col-p">
+            <figure class="figure">
+                <img src="../static/images/bigbag1.png">
+                <h2>بیتو بگ</h2>
+                <figcaption></figcaption>
+            </figure>
+        </article>
+    </section>
+    <script>
+        function toggleMenu() {
+            var menuUl = document.querySelector(".nav ul");
+            menuUl.classList.toggle("show");
+        }
+
+        document.querySelector(".menu-btn").addEventListener("click", function () {
+            // Toggle the mobile menu
+            toggleMenu();
+        });
+
+        document.querySelectorAll(".nav ul li a").forEach(function (menuItem) {
+            menuItem.addEventListener("click", function () {
+            // Hide the mobile menu
+            toggleMenu();
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    var scrollBtn = document.getElementById("scrollBtn");
+
+    window.addEventListener("scroll", function () {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollBtn.classList.add("show");
+        } else {
+            scrollBtn.classList.remove("show");
+        }
+    });
+
+    scrollBtn.addEventListener("click", function () {
+        scrollToTop(1000); // Scroll to top with animation in 1000 milliseconds (1 second)
+    });
+
+    function scrollToTop(duration) {
+        var start = document.documentElement.scrollTop || document.body.scrollTop;
+        var startTime = Date.now();
+
+        function scroll() {
+            var currentTime = Date.now();
+            var timeElapsed = currentTime - startTime;
+            document.documentElement.scrollTop = document.body.scrollTop = easeInOutQuad(timeElapsed, start, -start, duration);
+
+            if (timeElapsed < duration) {
+                requestAnimationFrame(scroll);
+            } else {
+                document.documentElement.scrollTop = document.body.scrollTop = 0;
+            }
+        }
+
+        function easeInOutQuad(t, b, c, d) {
+            t /= d / 2;
+            if (t < 1) return c / 2 * t * t + b;
+            t--;
+            return -c / 2 * (t * (t - 2) - 1) + b;
+        }
+
+        requestAnimationFrame(scroll);
+    }
+});
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
