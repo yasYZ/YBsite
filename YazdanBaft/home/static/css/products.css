@@ -1,10 +1,10 @@
 @font-face {
     font-family: font1;
-    src: url(../fonts/Vazir-Regular.ttf);
+    src: url(../fonts/VAZIRMATN-REGULAR.TTF);
 }
 @font-face {
     font-family: font2;
-    src: url(../fonts/Vazir-Black.ttf);
+    src: url(../fonts/VAZIRMATN-BLACK.TTF);
 }
 *{
     margin: 0;
@@ -128,7 +128,7 @@ ion-icon:hover {
 .menu ion-icon:hover{
     transform: rotate(90deg);
 }
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1215px) {
     .nav ul {
         display: none;
         position: fixed;
@@ -219,9 +219,10 @@ ion-icon:hover {
          rgb(27, 64, 118),
          rgb(52, 119, 219),
          rgb(27, 64, 118)
-
-    );    text-align: center;
+    );    
+    text-align: center;
     border-radius: 5px;
+    animation: loadtransformws 3s;
 }
 .col-p:hover{
     transform: scale(1.04);
@@ -230,11 +231,20 @@ ion-icon:hover {
     padding: 5px;
     height: 100px;
 }
+.img{
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(23, 39, 107);
+    border-radius: 10px 10px 50% 50%;
+}
 .col-p img{
+    margin-bottom: 5px;
+    position: relative;
     border: none;
     border-radius: 10px;
-    width: 170px;
-    height: 100px;
+    max-width: 300px;
+    max-height: 260px;
 }
 .more{
     font-family: font2;
@@ -258,15 +268,25 @@ ion-icon:hover {
     .row-p .col-p{
         width: 300px;
     }
-    .col-p img{
-        width: 250px;
-        height: 250px;
-    }
+}
+.btn{
+    margin-top: 10px;
+    width: 150px;
+    height: 50px;
+    font-family: font2;
+    border: none;
+    border-radius: 25px;
+    background-color: rgb(96, 160, 255, 0.507); 
+    transform: .5s;
+}
+.btn:hover{
+        background-color: rgb(0, 102, 255);
+        color: white;
 }
 .sale {
 	position: absolute;
-    top: 6px;
-    left: 6px;
+    top: -4px;
+    left: -4px;
 	display: inline-block;
 	background: #be2d28;
 	color: white;
@@ -293,8 +313,113 @@ ion-icon:hover {
 		transform: rotate(60deg);
 	}
 }
-
 @keyframes beat {
 	from {	transform: rotate(-20deg) scale(1); }
 	to {	transform: rotate(-20deg) scale(1.1); }
+}
+@keyframes loadtransform{
+    0%{
+        opacity: 0;
+        scale: 1.2;
+    }
+    100%{
+        opacity: 1;
+        scale: 1;
+    }
+}
+@keyframes loadtransformws{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+/* pr-det */
+.aside{
+    margin-top: -150px;
+    float: left;
+    width: 350px;
+    height: 100%;
+    text-align: center;
+    background: linear-gradient(
+         to left,
+         rgba(52, 152, 219, 0.212),
+         rgba(27, 63, 118, 0.164)
+    );
+}
+.aside-img{
+    overflow: hidden;
+    height: 400px;
+    width: 100%;
+    text-align: center;
+    border-radius: 0;
+    animation: loadtransform 3s;
+}
+.aside-img img{
+    margin-top: 140px;
+    position: relative;
+    border: none;
+    border-radius: 10px;
+    max-width: 300px;
+    max-height: 260px;
+}
+.aside-row{
+    width: 100%;
+    height: 100%;
+}
+.aside-col{
+    width: 100%;
+    height: 100%;
+}
+.aside-col a{
+    color: #000;
+    text-decoration: none;
+    animation: loadtransform 3s;
+}
+.aside-col a:hover{
+    color: #9e9e9e;
+}
+.aside-col h2{
+    font-family: font2;
+    font-size: 20pt;
+    color: rgb(65, 65, 65);
+    animation: loadtransform 3s;
+}
+.aside-col figcaption{
+    padding: 20px;
+    font-family: font1;
+    font-size: 17pt;
+    color: rgb(65, 65, 65);
+    animation: loadtransform 3s;
+}
+.i{
+    margin-right: 100px;
+    width: 150px;
+    background-color: #3d3d3d;
+    border-radius: 30px;
+    animation: loadtransform 3s;
+}
+@media screen and (max-width:520px){
+    .aside{
+        width: 100%;
+    }
+}
+.content-row{
+    width: 100%;
+    animation: loadtransformws 3s;
+}
+.content-row .content-col{
+    margin-top: 150px;
+}
+.content-row h1{
+    font-size: 45pt;
+    font-family: font2;
+}
+.content-row h2{
+    font-family: font2;
+    font-size: 30pt;
+}
+.content-row figcaption{
+    font-size: 15pt;
 }

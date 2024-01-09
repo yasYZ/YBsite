@@ -1,10 +1,10 @@
 @font-face {
     font-family: font1;
-    src: url(../fonts/Vazir-Regular.ttf);
+    src: url(../fonts/VAZIRMATN-REGULAR.TTF);
 }
 @font-face {
     font-family: font2;
-    src: url(../fonts/Vazir-Black.ttf);
+    src: url(../fonts/VAZIRMATN-BLACK.TTF);
 }
 *{
     margin: 0;
@@ -128,7 +128,7 @@ ion-icon:hover {
 .menu ion-icon:hover{
     transform: rotate(90deg);
 }
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1215px) {
     .nav ul {
         display: none;
         position: fixed;
@@ -434,6 +434,56 @@ header{
         padding: 0;
     }
 }
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  /* Show the modal with a fade-in effect */
+  .modal.show {
+    display: block;
+    opacity: 1;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background: linear-gradient(
+        to left,
+        rgb(15, 66, 143),
+        rgb(14, 46, 68),
+        rgb(15, 66, 143)
+    );    
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    height: 70%;
+  }
+  .modal-img{
+    width: 40%;
+  }
+  /* Close button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
 /* cert */
 .cert-row{
     width: 100%;
