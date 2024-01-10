@@ -199,7 +199,6 @@ header{
     border-bottom-style: groove;
     text-align: center;
     position: relative;
-    margin-top: 70px;
     width: 100%;
 }
 .filled-shape{
@@ -428,6 +427,10 @@ header{
 .gallery-col img{
     border-color: wheat;
     border-style: groove;
+    transform: .5s;
+}
+.gallery-col img:hover{
+    opacity: 50%;
 }
 @media screen and (max-width:400px) {
     .gallery-row{
