@@ -23,3 +23,6 @@ def about_us(request):
 def search(request, search):
     return HttpResponse('<h2>sa,dsopf</h2>')
 
+
+def contact_us(request):
+    return render(request, 'contact-us.html')

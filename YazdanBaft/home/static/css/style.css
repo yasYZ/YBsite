@@ -190,7 +190,6 @@ ion-icon:hover {
     border-radius: 5px;
     transition: opacity 0.3s ease-in-out;
 }
-
 #scrollBtn.show {
     display: block;
 }
@@ -494,6 +493,10 @@ header{
 }
 .img-cert{
     width: 100%;
+    transition: .3s;
+}
+.img-cert:hover{
+    opacity: 50%;
 }
 @media screen and (max-width:1500px) {
     .cert-row{

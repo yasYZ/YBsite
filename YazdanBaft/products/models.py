@@ -12,8 +12,18 @@ class Category(models.Model):
 
 class Products(models.Model):
     name = models.CharField(max_length=20)
-    description = models.TextField(max_length=158)
-    price = models.DecimalField(default=0, max_digits=50, decimal_places=0)
+    discription = models.TextField(max_length=158)
+    main_title = models.CharField(max_length=100)
+    main_discription = models.TextField(max_length=2500)
+    is_None1 = models.BooleanField(default=False)
+    title1 = models.CharField(max_length=100)
+    discription1 = models.TextField(max_length=2500)
+    is_None2 = models.BooleanField(default=False)
+    title2 = models.CharField(max_length=100)
+    discription2 = models.TextField(max_length=2500)
+    is_None3 = models.BooleanField(default=False)
+    title3 = models.CharField(max_length=100)
+    discription3 = models.TextField(max_length=2500)
     is_special = models.BooleanField(default=False)
     picture = models.ImageField(upload_to='static/image/')
 

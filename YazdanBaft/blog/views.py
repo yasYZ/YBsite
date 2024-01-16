@@ -7,5 +7,5 @@ def blog(request):
     return render(request, 'blog.html')
 
 
-def blog_detail(request):
+def blog_detail(request, bi):
     return render(request, 'first/blog_detail.html')
