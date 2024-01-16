@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
@@ -17,3 +18,8 @@ def blog_detail(request, bi):
 
 def about_us(request):
     return render(request, 'about_us.html')
+
+
+def search(request, search):
+    return HttpResponse('<h2>sa,dsopf</h2>')
+

@@ -22,5 +22,5 @@ urlpatterns = [
     path('', include('tickets.urls')),
     path('', include('products.urls')),
     path('', include('licences.urls')),
-
+    path('', include('blog.urls')),
 ]
