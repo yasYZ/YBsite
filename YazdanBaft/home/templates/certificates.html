@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شرکت یزدان بافت ایرانیان - برای ما پیام بگذارید</title>
+    <title>شرکت یزدان بافت ایرانیان - گواهی ها و مدارک ما</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
@@ -20,7 +20,7 @@
         </div>
         <div class="logo"><a href="/home"><img src="../static/images/logo-yazdan%20(2).png"></a></div>
         <div class="search-box">
-            <form action="{% url 'search' %}">
+            <form action="/search/">
                 <label>
                     <input type ="text" name ="search" id ="srch" placeholder="جست و جو">
                 </label>
@@ -39,72 +39,26 @@
             </li>
         </ul>
     </nav>
+    <h1 class="main-title">مدارک و گواهی نامه های ما</h1>
     <section class="row">
-        <article class="col">
-            <span class="sale">مدارک</span>
-            <figure class="figure">
-                <div class="modal" id="myModal">
-                    <div class="modal-content">
-                        <span class="close" onclick="closeModal()">&times;</span>
-                        <img class="show-img" src="../static/images/SPRK_default_preset_name_custom_1.png">
+        {% for item in licences %}
+            <article class="col">
+                <span class="sale">مدارک</span>
+                <figure class="figure">
+                    <div class="modal" id="myModal">
+                        <div class="modal-content">
+                            <span class="close" onclick="closeModal()">&times;</span>
+                            <img class="show-img" src="../../{{ item.image }}">
+                        </div>
                     </div>
-                </div>
-                <img class="img" onclick="openModal()" src="../static/images/SPRK_default_preset_name_custom_1.png">
-                <h2 class="title">گواهی کسب</h2>
-            </figure>
-        </article>
-        <article class="col">
-            <span class="sale">مدارک</span>
-            <figure class="figure">
-                <div class="modal" id="myModal">
-                    <div class="modal-content">
-                        <span class="close" onclick="closeModal()">&times;</span>
-                        <img class="show-img" src="../static/images/SPRK_default_preset_name_custom_1.png">
+                    <img class="img" onclick="openModal()" src="../../{{ item.image }}">
+                    <h2 class="title">{{ item.title }}</h2>
+                    <div class="caption">
+                        <p style="margin-top: 50px">{{ item.caption }}</p>
                     </div>
-                </div>
-                <img class="img" onclick="openModal()" src="../static/images/SPRK_default_preset_name_custom_1.png">
-                <h2 class="title">گواهی کسب</h2>
-            </figure>
-        </article>
-        <article class="col">
-            <span class="sale">مدارک</span>
-            <figure class="figure">
-                <div class="modal" id="myModal">
-                    <div class="modal-content">
-                        <span class="close" onclick="closeModal()">&times;</span>
-                        <img class="show-img" src="../static/images/SPRK_default_preset_name_custom_1.png">
-                    </div>
-                </div>
-                <img class="img" onclick="openModal()" src="../static/images/SPRK_default_preset_name_custom_1.png">
-                <h2 class="title">گواهی کسب</h2>
-            </figure>
-        </article>
-        <article class="col">
-            <span class="sale">مدارک</span>
-            <figure class="figure">
-                <div class="modal" id="myModal">
-                    <div class="modal-content">
-                        <span class="close" onclick="closeModal()">&times;</span>
-                        <img class="show-img" src="../static/images/SPRK_default_preset_name_custom_1.png">
-                    </div>
-                </div>
-                <img class="img" onclick="openModal()" src="../static/images/SPRK_default_preset_name_custom_1.png">
-                <h2 class="title">گواهی کسب</h2>
-            </figure>
-        </article>
-        <article class="col">
-            <span class="sale">مدارک</span>
-            <figure class="figure">
-                <div class="modal" id="myModal">
-                    <div class="modal-content">
-                        <span class="close" onclick="closeModal()">&times;</span>
-                        <img class="show-img" src="../static/images/SPRK_default_preset_name_custom_1.png">
-                    </div>
-                </div>
-                <img class="img" onclick="openModal()" src="../static/images/SPRK_default_preset_name_custom_1.png">
-                <h2 class="title">گواهی کسب</h2>
-            </figure>
-        </article>
+                </figure>
+            </article>
+        {% endfor %}
     </section>
         <footer class="footer">
             <div class="section-center">
@@ -173,6 +127,49 @@
             toggleMenu();
             });
         });
+    </script>
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        var scrollBtn = document.getElementById("scrollBtn");
+
+        window.addEventListener("scroll", function () {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollBtn.classList.add("show");
+            } else {
+                scrollBtn.classList.remove("show");
+            }
+        });
+
+        scrollBtn.addEventListener("click", function () {
+            scrollToTop(1000); // Scroll to top with animation in 1000 milliseconds (1 second)
+        });
+
+        function scrollToTop(duration) {
+            var start = document.documentElement.scrollTop || document.body.scrollTop;
+            var startTime = Date.now();
+
+            function scroll() {
+                var currentTime = Date.now();
+                var timeElapsed = currentTime - startTime;
+                document.documentElement.scrollTop = document.body.scrollTop = easeInOutQuad(timeElapsed, start, -start, duration);
+
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(scroll);
+                } else {
+                    document.documentElement.scrollTop = document.body.scrollTop = 0;
+                }
+            }
+
+            function easeInOutQuad(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            }
+
+            requestAnimationFrame(scroll);
+        }
+    });
     </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

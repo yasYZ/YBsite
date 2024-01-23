@@ -5,5 +5,4 @@ from . import views
 
 urlpatterns = [
     path('certificate/', views.licence),
-    path('certificate/<int:ci>', views.licence_detail),
 ]

@@ -330,6 +330,14 @@ ion-icon:hover {
 .title-caption{
     font-size: 18pt;
 }
+@media screen and (max-width: 630px){
+    .content-col img{
+        width: 250px;
+    }
+    .content-row .content-col{
+        margin-top: 100px;
+    }
+}
 /* footer */
 .footer {
     border-radius: 50% 50% 0 0;

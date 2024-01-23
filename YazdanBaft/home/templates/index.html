@@ -18,7 +18,7 @@
         </div>
         <div class="logo"><a href="/home"><img src="../static/images/logo-yazdan%20(2).png"></a></div>
         <div class="search-box">
-            <form action="{% url 'search' %}">
+            <form action="/search/">
                 <label>
                     <input type ="text" name ="search" id ="srch" placeholder="جست و جو">
                 </label>
@@ -40,7 +40,7 @@
     <header>
         <figure class="filled-shape">
             <img src="../static/images/jumbobag1.png">
-            <h1>یزدان بافت اولین تولید کننده ی گونی در استان تهران</h1>
+            <h1 style="margin-right: 1px;">یزدان بافت اولین تولید کننده ی گونی در استان تهران</h1>
             <figcaption>یزدان بافت شرکتی با استاندارد های روز جهانی پا به عرصه تولید گونی های 1 تا 2 تنی گذاشته. یزدان بافت از سال 1380 با نام های تجاری دیگر مانند تلیس بافت و پوریا بافت تاسیس شده. یزدان بافت با دستگاه های بروز گونی دوزی و گونی بافی کیفیت کالای شما را تضمین میکند.</figcaption>
         </figure>
         <figure class="about-sack">
@@ -103,78 +103,34 @@
         <!-- Products -->
         <h2 class="h2">محصولات ما:</h2>
         <section class="row">
-            <article class="col">
-                <figure>
-                    <img src="../static/images/bitubag1.png">
-                    <h2>بیتو بگ</h2>
-                    <figcaption>158لورم ایپسوم</figcaption>
-                </figure>
-                <a href="#"><button class="more">بیشتر بخوانید</button></a>
-            </article>
-            <article class="col">
-                <figure>
-                    <img src="../static/images/bitubag1.png">
-                    <h2>بیتو بگ</h2>
-                    <figcaption>لورم ایپسوم</figcaption>
-                </figure>
-                <a href="#"><button class="more">بیشتر بخوانید</button></a>
-            </article>
-            <article class="col">
-                <figure>
-                    <img src="../static/images/bitubag1.png">
-                    <h2>بیتو بگ</h2>
-                    <figcaption>لورم ایپسوم</figcaption>
-                </figure>
-                <a href="#"><button class="more">بیشتر بخوانید</button></a>
-            </article>
-            <article class="col">
-                <figure>
-                    <img src="../static/images/bitubag1.png">
-                    <h2>بیتو بگ</h2>
-                    <figcaption>لورم ایپسوم</figcaption>
-                </figure>
-                <a href="#"><button class="more">بیشتر بخوانید</button></a>
-            </article>
+            {% for item in products %}
+                <article class="col">
+                    {% if item.is_special %}
+                        <span class="sale">ویژه!</span>
+                    {% endif %}
+                    <figure>
+                        <img src="../../{{ item.picture }}">
+                        <h2>{{ item.name }}</h2>
+                        <figcaption>{{ item.discription }}</figcaption>
+                    </figure>
+                    <a href="/product/{{ item.id }}"><button class="more">بیشتر بخوانید</button></a>
+                </article>
+            {% endfor %}
         </section>
         <!-- gallery -->
         <h2 class="h2">عکس و ویدیو های تولید</h2>
         <section class="gallery-row">
-            <article class="gallery-col">
-                <div class="modal" id="myModal">
-                    <div class="modal-content">
-                      <span class="close" onclick="closeModal()">&times;</span>
-                      <img class="modal-img" src="../static/images/SPRK_default_preset_name_custom_1.png">
-                    </div>
-                  </div>
-                  <img onclick="openModal()" src="../static/images/SPRK_default_preset_name_custom_1.png">
-            </article>
-            <article class="gallery-col">
-                <div class="modal" id="myModal">
-                    <div class="modal-content">
-                      <span class="close" onclick="closeModal()">&times;</span>
-                      <img class="modal-img" src="../static/images/SPRK_default_preset_name_custom_1.png">
-                    </div>
-                  </div>
-                  <img onclick="openModal()" src="../static/images/SPRK_default_preset_name_custom_1.png">
-            </article>           
-            <article class="gallery-col">
-                <div class="modal" id="myModal">
-                    <div class="modal-content">
-                      <span class="close" onclick="closeModal()">&times;</span>
-                      <img class="modal-img" src="../static/images/SPRK_default_preset_name_custom_1.png">
-                    </div>
-                  </div>
-                  <img onclick="openModal()" src="../static/images/SPRK_default_preset_name_custom_1.png">
-            </article>           
-            <article class="gallery-col">
-                <div class="modal" id="myModal">
-                    <div class="modal-content">
-                      <span class="close" onclick="closeModal()">&times;</span>
-                      <img src="../static/images/SPRK_default_preset_name_custom_1.png">
-                    </div>
-                  </div>
-                  <img onclick="openModal()" src="../static/images/SPRK_default_preset_name_custom_1.png">
-            </article>
+            {% for item in gallery %}
+                <article class="gallery-col">
+                    <div class="modal" id="myModal">
+                        <div class="modal-content">
+                          <span class="close" onclick="closeModal()">&times;</span>
+                          <img class="modal-img" src="../../{{ item.file }}">
+                        </div>
+                      </div>
+                      <img onclick="openModal()" src="../../{{ item.file }}">
+                </article>
+            {% endfor %}
         </section>
         <!-- certificate -->
         <h2 class="h2">گواهی نامه ها:</h2>

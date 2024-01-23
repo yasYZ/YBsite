@@ -18,7 +18,7 @@
         </div>
         <div class="logo"><a href="/home"><img src="../static/images/logo-yazdan%20(2).png"></a></div>
         <div class="search-box">
-            <form>
+            <form action="/search/">
                 <label>
                     <input type ="text" name ="search" id ="srch" placeholder="جست و جو">
                 </label>
@@ -39,67 +39,21 @@
     </nav>   
     <section class="row-p">
         <h1 style="font-family: font2;margin-bottom: 50px; font-size: 35pt;">محصولات ما</h1>
-        <article class="col-p">
-            <figure class="figure">
-                <div class="img">
-                    <img src="../static/images/yazdanbaft-1.jpg">
-                </div>
-                <h2>بیتو بگ</h2>
-                <figcaption>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</figcaption>
-                <a href="#"><button class="btn">ادامه مطلب</button></a>
-            </figure>
-        </article>
-        <article class="col-p">
-            <span class="sale">ویژه!</span>
-            <figure class="figure">
-                <div class="img">
-                    <img src="../static/images/bigbag1.png">
-                </div>
-                <h2>بیتو بگ</h2>
-                <figcaption>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</figcaption>
-                <a><button class="btn">ادامه مطلب</button></a>
-            </figure>
-        </article>
-        <article class="col-p">
-            <figure class="figure">
-                <div class="img">
-                    <img src="../static/images/bigbag1.png">
-                </div>
-                <h2>بیتو بگ</h2>
-                <figcaption>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</figcaption>
-                <a><button class="btn">ادامه مطلب</button></a>
-            </figure>
-        </article>
-        <article class="col-p">
-            <figure class="figure">
-                <div class="img">
-                    <img src="../static/images/bigbag1.png">
-                </div>
-                <h2>بیتو بگ</h2>
-                <figcaption>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</figcaption>
-                <a><button class="btn">ادامه مطلب</button></a>
-            </figure>
-        </article>
-        <article class="col-p">
-            <figure class="figure">
-                <div class="img">
-                    <img src="../static/images/bigbag1.png">
-                </div>
-                <h2>بیتو بگ</h2>
-                <figcaption>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</figcaption>
-                <a><button class="btn">ادامه مطلب</button></a>
-            </figure>
-        </article>
-        <article class="col-p">
-            <figure class="figure">
-                <div class="img">
-                    <img src="../static/images/bigbag1.png">
-                </div>
-                <h2>بیتو بگ</h2>
-                <figcaption>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</figcaption>
-                <a><button class="btn">ادامه مطلب</button></a>
-            </figure>
-        </article>
+        {% for item in products %}
+            <article class="col-p">
+                {% if item.is_special %}
+                    <span class="sale">ویژه!</span>
+                {% endif %}
+                <figure class="figure">
+                    <div class="img">
+                        <img src="../../{{ item.picture }}">
+                    </div>
+                    <h2>{{ item.name }}</h2>
+                    <figcaption>{{ item.discription }}</figcaption>
+                    <a href="/product/{{ item.id }}"><button class="btn">ادامه مطلب</button></a>
+                </figure>
+            </article>
+        {% endfor %}
     </section>
     <footer class="footer">
         <div class="section-center">
