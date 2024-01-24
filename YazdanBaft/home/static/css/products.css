@@ -339,12 +339,13 @@ ion-icon:hover {
     padding: 100px 40px;
     margin-top: 80px;
     text-align: center;
-    background: url("../images/photo-1597773150796-e5c14ebecbf5.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 840px;
+    background: linear-gradient(
+    to left,
+    #0c75d9,
+    #003366
+    );
+    height: 100%;
     width: 100%;
-    border-radius: 0 0 35% 35%;
 }
 .content-row{
     width: 100%;
@@ -378,10 +379,6 @@ ion-icon:hover {
     font-size: 18pt;
 }
 @media screen and (max-width: 900px){
-    .side{
-        border-radius: 0;
-        height: 100%;
-    }
     .side img {
         width: 250px;
     }
