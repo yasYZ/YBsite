@@ -27,6 +27,11 @@
                 <button type ="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
+        <div style="display: none" class="Close">
+            <a class="close-btn" onclick="CloseNav">
+                <ion-icon id="Close" name="close-sharp"></ion-icon>
+            </a>
+        </div>
         <ul>
             <li><a href="/home">خانه</a></li>
             <li><a href="/blog">مقالات</a></li>
@@ -68,6 +73,7 @@
             </div>
             <div class="form-wrap">
                 <form action="/contact-us" method="POST">
+                    {% csrf_token %}
                     <h2 class="form-title">پیام بدهید</h2>
                     <div class="form-fields">
                         <div class="form-group">
@@ -95,6 +101,8 @@
         function toggleMenu() {
             var menuUl = document.querySelector(".nav ul");
             menuUl.classList.toggle("show");
+            var close = document.querySelector('.close-btn');
+            close.style.display = 'block';
         }
 
         document.querySelector(".menu-btn").addEventListener("click", function () {
@@ -108,7 +116,25 @@
             toggleMenu();
             });
         });
-    </script>
+        function CloseNav() {
+            var menuUl = document.querySelector(".nav .show");
+            var closeBTN = document.querySelector(".close-btn");
+            menuUl.classList.remove("show");
+            closeBTN.style.display = "none";
+        }
+
+        document.querySelector(".close-btn").addEventListener("click", function () {
+            // Toggle the mobile menu
+            CloseNav();
+        });
+
+        document.querySelectorAll(".nav .close-btn").forEach(function (menuItem) {
+            menuItem.addEventListener("click", function () {
+            // Hide the mobile menu
+            CloseNav();
+            });
+        });
+        </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>

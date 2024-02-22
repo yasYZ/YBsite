@@ -133,6 +133,17 @@ ion-icon:hover {
 .menu ion-icon:hover{
     transform: rotate(90deg);
 }
+.close-btn{
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    z-index: 100;
+    width: 30px;
+    height: 30px;
+    background-color: #1b1b1b;
+    border-radius: 50%;
+}
 @media screen and (max-width: 1215px) {
     .nav ul {
         display: none;
@@ -198,6 +209,19 @@ ion-icon:hover {
 #scrollBtn.show {
     display: block;
 }
+.alert{
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    height: 50px;
+    width: 100%;
+    background-color: #293771;
+    border-radius: 50px;
+    border: none;
+    font-family: font1;
+    color: #fff;
+    font-size: 16pt;
+}
 /* start */
 .row{
     padding: 180px;
@@ -224,6 +248,22 @@ ion-icon:hover {
     border-radius: 30px;
     border: none;
     font-family: font1;
+}
+.submit-button{
+    margin: 20px;
+    width: 200px;
+    height: 50px;
+    background-color: #0e3c92;
+    border-radius: 30px;
+    font-size: 20pt;
+    font-family: font2;
+    border: none;
+    color: #fff;
+    transition: .5s;
+}
+.submit-button:hover{
+    transform: scale(1.1);
+    background-color: #091d44;
 }
 @media screen and (max-width: 550px) {
     .row {

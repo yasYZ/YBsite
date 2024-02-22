@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis:300,400,500');
 
-@-moz-keyframes rocket-movement { 100% {-moz-transform: translate(1200px,-600px);} }
+@-momz-keyframes rocket-movement { 100% {-moz-transform: translate(1200px,-600px);} }
 @-webkit-keyframes rocket-movement {100% {-webkit-transform: translate(1200px,-600px); } }
 @keyframes rocket-movement { 100% {transform: translate(1200px,-600px);} }
 @-moz-keyframes spin-earth { 100% { -moz-transform: rotate(-360deg); transition: transform 20s;  } }
@@ -72,7 +72,6 @@ html, body{
     background-position: left top;
     height: 100%;
     overflow: hidden;
-
 }
 
 .custom-navbar{
@@ -144,8 +143,8 @@ li a:hover {
 .btn-go-home{
     position: relative;
     z-index: 200;
-    margin: 15px auto;
-    width: 100px;
+    margin: 40px auto;
+    width: 200px;
     padding: 10px 15px;
     border: 1px solid #FFCB39;
     border-radius: 100px;

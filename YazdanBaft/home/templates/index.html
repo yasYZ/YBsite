@@ -10,6 +10,9 @@
     <link rel="icon" href="../static/images/logoyazdan_32x32.ico" type="image/x-icon">
 </head>
 <body>
+    <div class="load-box">
+        <div class="loader"></div>
+    </div>
     <nav class="nav">
         <div class="menu">
             <label for="chk1">
@@ -18,12 +21,17 @@
         </div>
         <div class="logo"><a href="/home"><img src="../static/images/logo-yazdan%20(2).png"></a></div>
         <div class="search-box">
-            <form action="/search/">
+            <form action="/search/" method="POST">
                 <label>
-                    <input type ="text" name ="search" id ="srch" placeholder="جست و جو">
+                    <input type="text" name="search" placeholder="جست و جو">
                 </label>
                 <button type ="submit"><i class="fa fa-search"></i></button>
             </form>
+        </div>
+        <div style="display: none" class="Close">
+            <a class="close-btn" onclick="CloseNav">
+                <ion-icon id="Close" name="close-sharp"></ion-icon>
+            </a>
         </div>
         <ul>
             <li><a href="/home">خانه</a></li>
@@ -34,6 +42,10 @@
                 <a href="tel:+989122857381"><ion-icon name="call-outline"></ion-icon></a>
                 <a href="https://api.whatsapp.com/send?phone=+989122857381" target="_blank"><ion-icon name="logo-whatsapp"></ion-icon></a>
                 <a href="https://maps.app.goo.gl/KEnVCG1zKCzi52kw7 " target="_blank"><ion-icon name="location-sharp"></ion-icon></a>
+                {% if user.is_staff %}
+                    <a href="/admin"><ion-icon name="server-outline"></ion-icon></a>
+                    <a href="/email"><ion-icon name="logo-google"></ion-icon></a>
+                {% endif %}
             </li>
         </ul>
     </nav>
@@ -122,13 +134,16 @@
         <section class="gallery-row">
             {% for item in gallery %}
                 <article class="gallery-col">
-                    <div class="modal" id="myModal">
-                        <div class="modal-content">
-                          <span class="close" onclick="closeModal()">&times;</span>
-                          <img class="modal-img" src="../../{{ item.file }}">
+                    <div class="gallery">
+                        <img class="img--" src="../../{{ item.file }}" alt="Image 1" onclick="openModal('../../{{ item.file }}')">
+                    </div>
+
+                    <div id="myModal" class="modal">
+                        <div class="content">
+                            <span class="close" onclick="closeModal()">&times;</span>
+                            <img class="modal-content" id="modalImage">
                         </div>
-                      </div>
-                      <img onclick="openModal()" src="../../{{ item.file }}">
+                    </div>
                 </article>
             {% endfor %}
         </section>
@@ -166,35 +181,32 @@
         <button id="scrollBtn"><ion-icon name="arrow-up-circle"></ion-icon></button>
         <!-- end! -->
     <script>
-        function openModal() {
-        var modal = document.getElementById("myModal");
-        modal.style.display = "block";
-        setTimeout(function () {
-            modal.classList.add("show");
-        }, 50); // Adding a slight delay for better animation
+        function openModal(imageSrc) {
+            var modal = document.getElementById('myModal');
+            var modalImage = document.getElementById('modalImage');
+
+            modal.style.display = 'block';
+            modalImage.src = imageSrc;
         }
 
-        // Function to close the modal with animation
         function closeModal() {
-        var modal = document.getElementById("myModal");
-        modal.classList.remove("show");
-        setTimeout(function () {
-            modal.style.display = "none";
-        }, 300); // The duration of the animation (in milliseconds)
+            var modal = document.getElementById('myModal');
+            modal.style.display = 'none';
         }
 
-        // Close the modal if the user clicks outside the modal content
-        window.onclick = function (event) {
-        var modal = document.getElementById("myModal");
-        if (event.target == modal) {
-            closeModal();
+        window.onclick = function(event) {
+            var modal = document.getElementById('myModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
         }
-        };
     </script>
     <script>
         function toggleMenu() {
             var menuUl = document.querySelector(".nav ul");
             menuUl.classList.toggle("show");
+            var close = document.querySelector('.close-btn');
+            close.style.display = 'block';
         }
 
         document.querySelector(".menu-btn").addEventListener("click", function () {
@@ -208,7 +220,25 @@
             toggleMenu();
             });
         });
-    </script>
+        function CloseNav() {
+            var menuUl = document.querySelector(".nav .show");
+            var closeBTN = document.querySelector(".close-btn");
+            menuUl.classList.remove("show");
+            closeBTN.style.display = "none";
+        }
+
+        document.querySelector(".close-btn").addEventListener("click", function () {
+            // Toggle the mobile menu
+            CloseNav();
+        });
+
+        document.querySelectorAll(".nav .close-btn").forEach(function (menuItem) {
+            menuItem.addEventListener("click", function () {
+            // Hide the mobile menu
+            CloseNav();
+            });
+        });
+        </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
         var scrollBtn = document.getElementById("scrollBtn");

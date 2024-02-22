@@ -25,6 +25,11 @@
                 <button type ="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
+        <div style="display: none" class="Close">
+            <a class="close-btn" onclick="CloseNav">
+                <ion-icon id="Close" name="close-sharp"></ion-icon>
+            </a>
+        </div>
         <ul>
             <li><a href="/home">خانه</a></li>
             <li><a href="/blog">مقالات</a></li>
@@ -45,7 +50,7 @@
                 <p style="text-align: justify;">شرکت یزدان بافت فعالیت خود را در زمینه تولید کلیه مشتقات پلیمری، تولید گونی های پلاستیکی (پلی پروپیلن) و نایلون های عریض (پلی اتیلن)، بافت و دوخت کلیه گونی های صنعتی از قبیل انواع جامبو بگ، بیگ بگ و بیتوبگ آغاز نمود و با توجه به کیفیت بالای محصولات، در طی زمان فعالیت خود توانست رضایت مشتریان را جلب نمیاد.</p>
                 <p style="text-align: justify;">محصولات ما انواع جامبو بگ ، بیگ بگ و بیتو بگ در اندازه های مختلف (۵۰۰ تا ۲۵۰۰ کیلو گرمی) با مارک و بدون مارک، در مدل های ۸ بند، ۴ بند ، ۲ بند ، ۱ سر قیف و ۲ سر قیف و همچنین نایلون حریر با قیمت بسیار مناسب و طبق استاندارد های بین المللی می باشد.</p>
             </div>
-            <img src="../static/images/jumbobag3.jpg">
+            <img class="img" src="../static/images/jumbobag3.jpg">
         </article>
     </section>
     <section class="item-row">
@@ -65,7 +70,7 @@
             <figure>
                 <h2 class="item-title">آدرس</h2>
                 <p>آدرس دفتر</p>
-                <a href="#">ج آدران - نرسیده به اسد اباد - شهرک صنعتی صباشهر(جوانزاد) - رو به روی کشتار گاه قائم - گلستان 4 - پ44 و پ19</a>
+                <a>ج آدران - نرسیده به اسد اباد - شهرک صنعتی صباشهر(جوانزاد) - رو به روی کشتار گاه قائم - گلستان 4 - پ44 و پ19</a>
             </figure>
             <p>برای نمایش مکان ما روی آدرس ها کلیک کنید</p>
             <a href="https://maps.app.goo.gl/KEnVCG1zKCzi52kw7" target="_blank"><button class="btn">مکان ما</button></a>
@@ -149,6 +154,8 @@
         function toggleMenu() {
             var menuUl = document.querySelector(".nav ul");
             menuUl.classList.toggle("show");
+            var close = document.querySelector('.close-btn');
+            close.style.display = 'block';
         }
 
         document.querySelector(".menu-btn").addEventListener("click", function () {
@@ -162,7 +169,25 @@
             toggleMenu();
             });
         });
-    </script>
+        function CloseNav() {
+            var menuUl = document.querySelector(".nav .show");
+            var closeBTN = document.querySelector(".close-btn");
+            menuUl.classList.remove("show");
+            closeBTN.style.display = "none";
+        }
+
+        document.querySelector(".close-btn").addEventListener("click", function () {
+            // Toggle the mobile menu
+            CloseNav();
+        });
+
+        document.querySelectorAll(".nav .close-btn").forEach(function (menuItem) {
+            menuItem.addEventListener("click", function () {
+            // Hide the mobile menu
+            CloseNav();
+            });
+        });
+        </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
         var scrollBtn = document.getElementById("scrollBtn");

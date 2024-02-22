@@ -16,8 +16,13 @@ def about_us(request):
     return render(request, 'about_us.html')
 
 
-def search(request, si):
-    return HttpResponse('sdfsdfg')
+def search(request):
+    if request.method == 'POST':
+        search_input = request.POST.get('search')
+        if search_input is not None:
+            result = Products.objects.filter(name__contains=search_input)
+
+    return render(request, 'search_result.html')
 
 
 def contact_us(request):
@@ -27,3 +32,7 @@ def contact_us(request):
 def representatives1(request):
     representatives = represent.objects.all()
     return render(request, 'representatives.html', {'represent': representatives})
+
+
+def gallerys(request):
+    return render(request, 'gallery.html')

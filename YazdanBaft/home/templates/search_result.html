@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>محصولات - شرکت یزدان بافت ایرانیان</title>
-    <link rel="stylesheet" href="../static/css/products.css">
+    <link rel="stylesheet" href="../static/css/search_result.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="../static/images/logoyazdan_32x32.ico" type="image/x-icon">
 </head>
@@ -41,49 +41,44 @@
                 <a href="https://maps.app.goo.gl/KEnVCG1zKCzi52kw7 " target="_blank"><ion-icon name="location-sharp"></ion-icon></a>
             </li>
         </ul>
-    </nav>   
-    <section class="row-p">
-        <h1 style="font-family: font2;margin-bottom: 50px; font-size: 35pt;">محصولات ما</h1>
-        {% for item in products %}
-            <article class="col-p">
-                {% if item.is_special %}
-                    <span class="sale">ویژه!</span>
-                {% endif %}
-                <figure class="figure">
-                    <div class="img">
-                        <img src="../../{{ item.picture }}">
-                    </div>
-                    <h2>{{ item.name }}</h2>
-                    <figcaption>{{ item.discription }}</figcaption>
-                    <a href="/product/{{ item.id }}"><button class="btn">ادامه مطلب</button></a>
-                </figure>
-            </article>
-        {% endfor %}
+    </nav>
+    <h2>نتایج جستجو شده</h2>
+    <section class="row">
+        <article class="col">
+            <figure class="content-box">
+                <img class="content-img" src="../static/images/SPRK_default_preset_name_custom_1.png">
+                <h3 class="content">بیتو بگ</h3>
+                <figcaption class="content">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم ا</figcaption>
+                <a href="#"><button class="more">بیشتر بخوانید</button></a>
+            </figure>
+        </article>
+        <article class="col">
+            <figure class="content-box">
+                <img class="content-img" src="../static/images/SPRK_default_preset_name_custom_1.png">
+                <h3 class="content">بیتو بگ</h3>
+                <figcaption class="content">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم ا</figcaption>
+                <a href="#"><button class="more">بیشتر بخوانید</button></a>
+            </figure>
+        </article>
+        <article class="col">
+            <figure class="content-box">
+                <img class="content-img" src="../static/images/SPRK_default_preset_name_custom_1.png">
+                <h3 class="content">بیتو بگ</h3>
+                <figcaption class="content">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم ا</figcaption>
+                <a href="#"><button class="more">بیشتر بخوانید</button></a>
+            </figure>
+        </article>
+        <article class="col">
+            <figure class="content-box">
+                <img class="content-img" src="../static/images/SPRK_default_preset_name_custom_1.png">
+                <h3 class="content">بیتو بگ</h3>
+                <figcaption class="content">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم ا</figcaption>
+                <a href="#"><button class="more">بیشتر بخوانید</button></a>
+            </figure>
+        </article>
     </section>
-    <footer class="footer">
-        <div class="section-center">
-            <div class="social-icons">
-            <!-- social icon -->
-                <a href="tel:+989122857381" class="social-icon">
-                    <ion-icon name="call"></ion-icon>
-                </a>
-                <!-- end of social icon -->
-                <!-- social icon -->
-                <a href="https://maps.app.goo.gl/KEnVCG1zKCzi52kw7" class="social-icon">
-                    <ion-icon name="location-sharp"></ion-icon>
-                </a>
-                <!-- end of social icon -->
-                <!-- social icon -->
-                <a href="https://api.whatsapp.com/send?phone=+989122857381" class="social-icon">
-                    <ion-icon name="logo-whatsapp"></ion-icon>
-                </a>
-            <!-- end of social icon -->
-        </div>
-        <a class="footer-text" href="/contact-us">پیامی دارید؟برای ما با کلیک کردن پیام بگذارید</a>
-        <p class="footer-text">&copy; ۱۴۰۳ وب‌سایت یزدان بافت. تمامی حقوق محفوظ است. | طراحی توسط TopUP</p>
-        </div>
-    </footer>
     <button id="scrollBtn"><ion-icon name="arrow-up-circle"></ion-icon></button>
+<!--    end     -->
     <script>
         function toggleMenu() {
             var menuUl = document.querySelector(".nav ul");

@@ -130,6 +130,17 @@ ion-icon:hover {
 .menu ion-icon:hover{
     transform: rotate(90deg);
 }
+.close-btn{
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    z-index: 100;
+    width: 30px;
+    height: 30px;
+    background-color: #1b1b1b;
+    border-radius: 50%;
+}
 @media screen and (max-width: 1215px) {
     .nav ul {
         display: none;
