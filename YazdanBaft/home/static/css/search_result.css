@@ -247,6 +247,7 @@ h2{
     }
     .content-box {
         display: inline-block;
+        text-align: center;
     }
     .content-img {
         max-height: 100%;
