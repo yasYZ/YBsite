@@ -16,3 +16,14 @@ class represent(models.Model):
 
 class gallery(models.Model):
     file = models.FileField(upload_to='static/gallery/')
+
+
+class ContactUS(models.Model):
+    first_name = models.CharField(max_length=35)
+    last_name = models.CharField(max_length=35)
+    number = models.CharField(max_length=11)
+    message = models.TextField(max_length=500)
+    is_comment_or_rate = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.first_name

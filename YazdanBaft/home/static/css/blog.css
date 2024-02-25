@@ -274,12 +274,13 @@ ion-icon:hover {
     transform: scale(1.2);
 }
 @media screen and (max-width: 625px){
-    .row-p{
+    .row{
         margin-top: 200px;
         padding: 0;
     }
-    .row-p .col-p{
+    .row .col{
         width: 300px;
+        margin-right: 0;
     }
 }
 .btn{
@@ -338,6 +339,7 @@ ion-icon:hover {
     font-size: 30pt;
 }
 .content-row .caption{
+    text-align: justify;
     font-size: 15pt;
 }
 .content-col img{
@@ -347,6 +349,7 @@ ion-icon:hover {
     border-radius: 15px;
 }
 .title-caption{
+    text-align: justify;
     font-size: 18pt;
 }
 @media screen and (max-width: 630px){

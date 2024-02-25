@@ -212,14 +212,15 @@ ion-icon:hover {
     width: 100%;
     text-align: center;
     margin-bottom: 60px;
-    border-top: groove 2px;
 }
 .row .col{
-    width: 100%;
+    width: 70%;
     min-height: 400px;
     max-height: 800px;
     display: block;
     border-bottom: groove 2px;
+    margin: 0 auto;
+    border-radius: 10px 10px 0 0;
 }
 .row .col:hover {
     background-color: #9f1e1e;

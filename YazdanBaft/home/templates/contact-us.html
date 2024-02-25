@@ -12,6 +12,14 @@
     <link rel="icon" href="../static/images/logoyazdan_32x32.ico" type="image/x-icon">
 </head>
 <body>
+    {% if messages %}
+        {% for message in messages %}
+            <div id="alert" class="alert" role="alert">
+                <strong>{{ message }}</strong>
+                <a class="alert-btn" id="close-alert"><ion-icon name="close-outline"></ion-icon></a>
+            </div>
+        {% endfor %}
+    {% endif %}
     <nav class="nav">
         <div class="menu">
             <label for="chk1">
@@ -20,7 +28,8 @@
         </div>
         <div class="logo"><a href="/home"><img src="../static/images/logo-yazdan%20(2).png"></a></div>
         <div class="search-box">
-            <form action="/search/">
+            <form action="/search/" method="POST">
+                {% csrf_token %}
                 <label>
                     <input type ="text" name ="search" id ="srch" placeholder="جست و جو">
                 </label>
@@ -72,24 +81,24 @@
                 </ul>
             </div>
             <div class="form-wrap">
-                <form action="/contact-us" method="POST">
+                <form action="/contact-us/" method="POST">
                     {% csrf_token %}
                     <h2 class="form-title">پیام بدهید</h2>
                     <div class="form-fields">
                         <div class="form-group">
-                            <input type="text" class="fname" placeholder="نام خانوادگی" required>
+                            <input name="fname" type="text" class="fname" placeholder="نام خانوادگی" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="lname" placeholder="نام" required>
+                            <input name="lname" type="text" class="lname" placeholder="نام" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="email" placeholder="ایمیل" required>
+                            <input name="email" type="email" class="email" placeholder="ایمیل" required>
                         </div>
                         <div class="form-group">
-                            <input type="number" class="phone" placeholder="شماره تلفن همراه" required>
+                            <input name="num" type="number" class="phone" placeholder="شماره تلفن همراه" required>
                         </div>
                         <div class="form-group">
-                            <textarea name="message" id="" placeholder="پیام خود را بنویسید"required></textarea>
+                            <textarea name="message" id="" placeholder="پیام خود را بنویسید" required></textarea>
                         </div>
                     </div>
                     <input type="submit" value="ارسال" class="submit-button">
@@ -134,6 +143,19 @@
             CloseNav();
             });
         });
+        </script>
+        <script>
+            // دریافت المان‌ها با استفاده از شناسه‌ها
+            var alert = document.getElementById('alert');
+            var myButton = document.getElementById('close-alert');
+
+            // تعریف یک تابع برای اضافه کردن کلاس جدید
+            function addNewClass() {
+                alert.classList.add('alert-close');
+            }
+
+            // افزودن یک رویداد کلیک به دکمه
+            myButton.addEventListener('click', addNewClass);
         </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

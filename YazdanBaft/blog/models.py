@@ -19,6 +19,7 @@ class Blog(models.Model):
     title5 = models.CharField(max_length=100, null=True, blank=True)
     discription5 = models.TextField(max_length=2500, null=True, blank=True)
     picture = models.ImageField(upload_to='static/images/')
+    date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name    

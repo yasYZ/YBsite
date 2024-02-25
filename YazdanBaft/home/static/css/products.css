@@ -277,6 +277,7 @@ ion-icon:hover {
     }
     .row-p .col-p{
         width: 300px;
+        margin-right: 0;
     }
 }
 .btn{
@@ -378,6 +379,7 @@ ion-icon:hover {
     font-size: 30pt;
 }
 .side .caption{
+    text-align: justify;
     font-size: 15pt;
 }
 .side img{

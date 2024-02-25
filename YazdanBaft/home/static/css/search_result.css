@@ -212,6 +212,7 @@ h2{
     text-align: center;
     color: white;
     font-size: 19pt;
+    animation: loadtransformws 3s;
 }
 .row{
     width: 100%;
@@ -224,6 +225,8 @@ h2{
     padding: 20px;
     border-top: 2px #fff solid;
     border-bottom: 2px #fff solid;
+    animation: loadtransformws 3s;
+    text-align: center;
 }
 .content-box{
     display: flex;
@@ -234,11 +237,14 @@ h2{
     color: #fff;
     border-top: 2px #fff solid;
 }
+figcaption .content{
+    width: 1080px;
+}
 .content-img{
     max-width: 200px;
     max-height: 200px;
 }
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 950px) {
     .row {
         padding: 20px;
     }
@@ -270,4 +276,60 @@ h2{
     transform: scale(1.1);
     color: #000;
     background-color: #5b80b2;
+}
+@keyframes loadtransform{
+    0%{
+        opacity: 0;
+        scale: 1.2;
+    }
+    100%{
+        opacity: 1;
+        scale: 1;
+    }
+}
+@keyframes loadtransformws{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.alert{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 100;
+    padding: 15px;
+    width: 560px;
+    height: 56px;
+    background: linear-gradient(
+    to left,
+    #B60F46,
+    #D592FF
+    );
+    text-align: center;
+    border-radius: 50px;
+}
+.alert-btn{
+    position: absolute;
+    right: 30px;
+    transition: 0.3s;
+}
+.alert-btn:hover {
+    color: white;
+}
+.alert-close{
+    animation: alert-close .2s forwards;
+}
+@keyframes alert-close {
+    100%{
+        opacity: 0;
+        to {
+            display: none;
+        }
+    }
+    0%{
+       opacity: 100%;
+    }
 }

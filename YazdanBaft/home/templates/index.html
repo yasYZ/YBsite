@@ -4,15 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شرکت یزدان بافت ایرانیان - تولید کننده بیتو بگ قیر, کیسه قیر, جامبو بگ و پلی بگ قیر</title>
+    <title>تولید کننده جامبوبگ، بيگ بگ - پوریا بافت </title>
+    <meta name="description" content="تولید کننده و فروشنده ی انواع جامبو بگ , بیتو بگ , بیگ بگ و مشقات پلیمیری از جمله نایلون عریض نایلون قیر ,گونی لمینت شده و گونی های نایلون دار دوخت و بافت گونی های پلاستیکی"/>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="../static/images/logoyazdan_32x32.ico" type="image/x-icon">
 </head>
 <body>
-    <div class="load-box">
-        <div class="loader"></div>
-    </div>
     <nav class="nav">
         <div class="menu">
             <label for="chk1">
@@ -22,17 +20,16 @@
         <div class="logo"><a href="/home"><img src="../static/images/logo-yazdan%20(2).png"></a></div>
         <div class="search-box">
             <form action="/search/" method="POST">
+                {% csrf_token %}
                 <label>
                     <input type="text" name="search" placeholder="جست و جو">
                 </label>
                 <button type ="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
-        <div style="display: none" class="Close">
             <a class="close-btn" onclick="CloseNav">
                 <ion-icon id="Close" name="close-sharp"></ion-icon>
             </a>
-        </div>
         <ul>
             <li><a href="/home">خانه</a></li>
             <li><a href="/blog">مقالات</a></li>

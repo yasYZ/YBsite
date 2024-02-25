@@ -26,6 +26,7 @@ class Products(models.Model):
     title5 = models.CharField(max_length=100, null=True, blank=True)
     discription5 = models.TextField(max_length=2500, null=True, blank=True)
     is_special = models.BooleanField(default=False)
+    is_main_page = models.BooleanField(default=False)
     picture = models.ImageField(upload_to='static/images/')
 
     def __str__(self):
