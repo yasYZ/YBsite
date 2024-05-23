@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شرکت یزدان بافت ایرانیان - گواهی ها و مدارک ما</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="stylesheet" href="/static/css/certificates.css">
+    <link rel="icon" href="/static/images/logoyazdan_32x32.ico" type="image/x-icon">
+</head>
+<body>
+    <nav class="nav">
+        <div class="menu">
+            <label for="chk1">
+                <ion-icon class="menu-btn" name="menu"></ion-icon>
+            </label>
+        </div>
+        <div class="logo"><a href="/fa/home"><img src="/static/images/logo-yazdan%20(2).png"></a></div>
+        <div class="search-box">
+            <form action="/fa/search/" method="POST">
+                {% csrf_token %}
+                <label>
+                    <input type ="text" name ="search" id ="srch" placeholder="جست و جو">
+                </label>
+                <button type ="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <div style="display: none" class="Close">
+            <a class="close-btn" onclick="CloseNav">
+                <ion-icon id="Close" name="close-sharp"></ion-icon>
+            </a>
+        </div>
+        <ul>
+            <li><a href="/fa/home">خانه</a></li>
+            <li><a href="/fa/blog">مقالات</a></li>
+            <li><a href="/fa/product">محصولات</a></li>
+            <li><a href="/fa/about-us">درباره ما</a></li>
+            <li>
+                <a href="tel:+989122857381"><ion-icon name="call-outline"></ion-icon></a>
+                <a href="https://api.whatsapp.com/send?phone=+989122857381" target="_blank"><ion-icon name="logo-whatsapp"></ion-icon></a>
+                <a href="https://maps.app.goo.gl/KEnVCG1zKCzi52kw7" target="_blank"><ion-icon name="location-sharp"></ion-icon></a>
+            </li>
+        </ul>
+    </nav>
+    <h1 class="main-title">مدارک و گواهی نامه های ما</h1>
+    <section class="row">
+        {% for item in licences %}
+            <article class="col">
+                <span class="sale">مدارک</span>
+                <figure class="figure">
+                    <div class="modal-img">
+                        <img class="img" src="/{{ item.image }}" alt="Image 1" onclick="openModal('/{{ item.image }}')">
+                    </div>
+
+                    <div id="myModal" class="modal">
+                        <div class="content">
+                            <span class="close" onclick="closeModal()">&times;</span>
+                            <img class="modal-content" id="modalImage">
+                        </div>
+                    </div>
+                    <h2 class="title">{{ item.title }}</h2>
+                    <figcaption class="caption">{{ item.caption }}</figcaption>
+                </figure>
+            </article>
+        {% endfor %}
+    </section>
+        <footer class="footer">
+            <div class="section-center">
+                <div class="social-icons">
+                <!-- social icon -->
+                <a href="tel:+989122857381" class="social-icon">
+                    <ion-icon name="call"></ion-icon>
+                </a>
+                <!-- end of social icon -->
+                <!-- social icon -->
+                <a href="https://maps.app.goo.gl/KEnVCG1zKCzi52kw7" class="social-icon">
+                    <ion-icon name="location-sharp"></ion-icon>
+                </a>
+                <!-- end of social icon -->
+                <!-- social icon -->
+                <a href="https://api.whatsapp.com/send?phone=+989122857381" class="social-icon">
+                    <ion-icon name="logo-whatsapp"></ion-icon>
+                </a>
+                <!-- end of social icon -->
+            </div>
+            <a class="footer-text" href="/fa/contact-us">پیامی دارید؟برای ما با کلیک کردن پیام بگذارید</a>
+            <p class="footer-text">&copy; ۱۴۰۳ وب‌سایت یزدان بافت. تمامی حقوق محفوظ است. | طراحی توسط TopUP</p>
+            </div>
+        </footer>
+        <button id="scrollBtn"><ion-icon name="arrow-up-circle"></ion-icon></button>
+        <script>
+        function openModal(imageSrc) {
+            var modal = document.getElementById('myModal');
+            var modalImage = document.getElementById('modalImage');
+
+            modal.style.display = 'block';
+            modalImage.src = imageSrc;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            var modal = document.getElementById('myModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+    <script>
+        function toggleMenu() {
+            var menuUl = document.querySelector(".nav ul");
+            menuUl.classList.toggle("show");
+            var close = document.querySelector('.close-btn');
+            close.style.display = 'block';
+        }
+
+        document.querySelector(".menu-btn").addEventListener("click", function () {
+            // Toggle the mobile menu
+            toggleMenu();
+        });
+
+        document.querySelectorAll(".nav ul li a").forEach(function (menuItem) {
+            menuItem.addEventListener("click", function () {
+            // Hide the mobile menu
+            toggleMenu();
+            });
+        });
+        function CloseNav() {
+            var menuUl = document.querySelector(".nav .show");
+            var closeBTN = document.querySelector(".close-btn");
+            menuUl.classList.remove("show");
+            closeBTN.style.display = "none";
+        }
+
+        document.querySelector(".close-btn").addEventListener("click", function () {
+            // Toggle the mobile menu
+            CloseNav();
+        });
+
+        document.querySelectorAll(".nav .close-btn").forEach(function (menuItem) {
+            menuItem.addEventListener("click", function () {
+            // Hide the mobile menu
+            CloseNav();
+            });
+        });
+        </script>
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        var scrollBtn = document.getElementById("scrollBtn");
+
+        window.addEventListener("scroll", function () {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollBtn.classList.add("show");
+            } else {
+                scrollBtn.classList.remove("show");
+            }
+        });
+
+        scrollBtn.addEventListener("click", function () {
+            scrollToTop(1000); // Scroll to top with animation in 1000 milliseconds (1 second)
+        });
+
+        function scrollToTop(duration) {
+            var start = document.documentElement.scrollTop || document.body.scrollTop;
+            var startTime = Date.now();
+
+            function scroll() {
+                var currentTime = Date.now();
+                var timeElapsed = currentTime - startTime;
+                document.documentElement.scrollTop = document.body.scrollTop = easeInOutQuad(timeElapsed, start, -start, duration);
+
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(scroll);
+                } else {
+                    document.documentElement.scrollTop = document.body.scrollTop = 0;
+                }
+            }
+
+            function easeInOutQuad(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            }
+
+            requestAnimationFrame(scroll);
+        }
+    });
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

@@ -320,6 +320,7 @@ header{
     background: var(--mainGrey);
 }
 .skill {
+    height: 280px;
     padding: 2.5rem 0;
     text-align: center;
     transition: var(--mainTransition);
@@ -411,14 +412,17 @@ header{
 }
 .more:hover{
     background-color: #7a7a7a;
-    transform: scale(1.2);
+    transform: scale(1.05);
 }
 @media screen and (max-width: 625px){
     .row{
         padding: 0;
     }
     .row .col{
-        width: 300px;
+        width: 80%;
+    }
+    .more{
+        margin-top: 40px;
     }
     .col img{
         width: 250px;

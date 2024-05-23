@@ -18,13 +18,17 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+handler404 = 'home.views.custom_404'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', admin.site.login),
     path('', include('home.urls')),
-    path('', include('tickets.urls')),
-    path('', include('products.urls')),
-    path('', include('licences.urls')),
-    path('', include('blog.urls')),
-    path('', include('email_admin.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('<lh>/', include('home.urls')),
+    path('<lh>/', include('tickets.urls')),
+    path('<lh>/', include('products.urls')),
+    path('<lh>/', include('licences.urls')),
+    path('<lh>/', include('blog.urls')),
+    path('<lh>/', include('email_admin.urls')),
+]
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

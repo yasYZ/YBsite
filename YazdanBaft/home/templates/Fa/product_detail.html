@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>محصولات - شرکت یزدان بافت ایرانیان</title>
-    <link rel="stylesheet" href="../../static/css/products.css">
+    <title>{% for item in product %} {{ item.main_title }} {% endfor %}</title>
+    <link rel="stylesheet" href="/static/css/products.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" href="../../static/images/logoyazdan_32x32.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/logoyazdan_32x32.ico" type="image/x-icon">
 </head>
 <body>
     <nav class="nav">
@@ -16,9 +16,9 @@
                 <ion-icon class="menu-btn" name="menu"></ion-icon>
             </label>
         </div>
-        <div class="logo"><a href="/home"><img src="../../static/images/logo-yazdan%20(2).png"></a></div>
+        <div class="logo"><a href="/fa/home"><img src="/static/images/logo-yazdan%20(2).png"></a></div>
         <div class="search-box">
-            <form action="/search/" method="POST">
+            <form action="/fa/search/" method="POST">
                 {% csrf_token %}
                 <label>
                     <input type ="text" name ="search" id ="srch" placeholder="جست و جو">
@@ -27,10 +27,10 @@
             </form>
         </div>
         <ul>
-            <li><a href="/home">خانه</a></li>
-            <li><a href="/blog">مقالات</a></li>
-            <li><a href="/product">محصولات</a></li>
-            <li><a href="/about-us">درباره ما</a></li>
+            <li><a href="/fa/home">خانه</a></li>
+            <li><a href="/fa/blog">مقالات</a></li>
+            <li><a href="/fa/product">محصولات</a></li>
+            <li><a href="/fa/about-us">درباره ما</a></li>
             <li>
                 <a href="tel:+989122857381"><ion-icon name="call-outline"></ion-icon></a>
                 <a href="https://api.whatsapp.com/send?phone=+989122857381" target="_blank"><ion-icon name="logo-whatsapp"></ion-icon></a>
@@ -42,34 +42,39 @@
         {% for item in product %}
             <aside class="side">
                 <h1 class="title">{{ item.main_title }}</h1>
-                <img src="../../{{ item.picture }}">
+                <img src="/{{ item.picture }}">
                 <p class="title-caption">{{ item.main_discription }}</p>
             </aside>
             <article class="content-col">
                 <figure>
                     <h2 class="secondry-title">{{ item.name }}</h2>
                     <figcaption class="caption">{{ item.discription }}</figcaption>
-                    {% if item.title1 is not None %}
+                    {% if item.title1 %}
                         <h2 class="secondry-title">{{ item.title1 }}</h2>
+                        {% if item.picture1 %}<img {% if item.left1 and item.right1 %} class="center" {% elif item.left1 %} class="left" {% elif item.right1 %} class="right" {% else %} class="center" {% endif %} src="/{{ item.picture1 }}">{% endif %}
                         <figcaption class="caption">{{ item.discription1 }}</figcaption>
                     {% endif %}
-                    {% if item.title2 is not None %}
-                        <h2 class="secondry-title">{{ item.title1 }}</h2>
-                        <figcaption class="caption">{{ item.discription1 }}</figcaption>
+                    {% if item.title2 %}
+                        <h2 class="secondry-title">{{ item.title2 }}</h2>
+                        {% if item.picture1 %}<img {% if item.left2 and item.right2 %} class="center" {% elif item.left2 %} class="left" {% elif item.right2 %} class="right" {% else %} class="center" {% endif %} src="/{{ item.picture2 }}">{% endif %}
+                        <figcaption class="caption">{{ item.discription2 }}</figcaption>
                     {% endif %}
-                    {% if item.title3 is not None %}
-                        <h2 class="secondry-title">{{ item.title1 }}</h2>
-                        <figcaption class="caption">{{ item.discription1 }}</figcaption>
+                    {% if item.title3 %}
+                        <h2 class="secondry-title">{{ item.title3 }}</h2>
+                        {% if item.picture1 %}<img {% if item.left3 and item.right3 %} class="center" {% elif item.left3 %} class="left" {% elif item.right3 %} class="right" {% else %} class="center" {% endif %} src="/{{ item.picture3 }}">{% endif %}
+                        <figcaption class="caption">{{ item.discription3 }}</figcaption>
                     {% endif %}
-                    {% if item.title4 is not None %}
-                        <h2 class="secondry-title">{{ item.title1 }}</h2>
-                        <figcaption class="caption">{{ item.discription1 }}</figcaption>
+                    {% if item.title4 %}
+                        <h2 class="secondry-title">{{ item.title4 }}</h2>
+                        {% if item.picture1 %}<img {% if item.left4 and item.right4 %} class="center" {% elif item.left4 %} class="left" {% elif item.right4 %} class="right" {% else %} class="center" {% endif %} src="/{{ item.picture4 }}">{% endif %}
+                        <figcaption class="caption">{{ item.discription4 }}</figcaption>
                     {% endif %}
-                    {% if item.title5 is not None %}
-                        <h2 class="secondry-title">{{ item.title1 }}</h2>
-                        <figcaption class="caption">{{ item.discription1 }}</figcaption>
+                    {% if item.title5 %}
+                        <h2 class="secondry-title">{{ item.title5 }}</h2>
+                        {% if item.picture1 %}<img {% if item.left5 and item.right5 %} class="center" {% elif item.left5 %} class="left" {% elif item.right5 %} class="right" {% else %} class="center" {% endif %} src="/{{ item.picture5 }}">{% endif %}
+                        <figcaption class="caption">{{ item.discription5 }}</figcaption>
                     {% endif %}
-                        <a style="font-family: font2;display: block; margin: 50px; text-decoration: none;color: #000;font-size: 20pt;" href="/about-us">برای خرید با ما تماس بگیرید</a>
+                        <a style="font-family: font2;display: block; margin: 50px; text-decoration: none;color: #000;font-size: 20pt;" href="/fa/about-us">برای خرید با ما تماس بگیرید</a>
                         <a href="https://api.whatsapp.com/send?phone=+989122857381" style="font-family: font2; text-decoration: none;color: #000;font-size: 20pt;"><ion-icon style="color: #000;" name="logo-whatsapp"></ion-icon></a><a href="tel:+989122857381"><ion-icon style="color: #000" name="call"></ion-icon></a>
                 </figure>
             </article>
@@ -94,7 +99,7 @@
             </a>
             <!-- end of social icon -->
         </div>
-        <a class="footer-text" href="/contact-us">پیامی دارید؟برای ما با کلیک کردن پیام بگذارید</a>
+        <a class="footer-text" href="/fa/contact-us">پیامی دارید؟برای ما با کلیک کردن پیام بگذارید</a>
         <p class="footer-text">&copy; ۱۴۰۳ وب‌سایت یزدان بافت. تمامی حقوق محفوظ است. | طراحی توسط TopUP</p>
         </div>
     </footer>

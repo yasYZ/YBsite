@@ -368,6 +368,9 @@ ion-icon:hover {
     padding: 50px;
     margin-top: 20px;
 }
+.content-col figcaption{
+    font-size: 16pt;
+}
 .side .title {
     color: #fff;
     font-size: 35pt;
@@ -390,6 +393,21 @@ ion-icon:hover {
 .title-caption{
     color: white;
     font-size: 18pt;
+}
+.right{
+    margin: 30px;
+    float: right;!important;
+    width: 40%;!important;
+}
+.left{
+    margin: 30px;;
+    float: left;!important;
+    width: 40%;!important;
+}
+.center{
+    float: none;!important;
+    margin: 30px;;
+    width: 20%;!important;
 }
 @media screen and (max-width: 900px){
     .side img {

@@ -1,13 +1,14 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>محصولات - شرکت یزدان بافت ایرانیان</title>
-    <link rel="stylesheet" href="../static/css/products.css">
+    <title>Iranian Yazdan Baft co. - Products</title>
+    <link rel="stylesheet" href="/static/css/products.css">
+    <link rel="stylesheet" href="/static/css/en_styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" href="../static/images/logoyazdan_32x32.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/logoyazdan_32x32.ico" type="image/x-icon">
 </head>
 <body>
     <nav class="nav">
@@ -16,12 +17,12 @@
                 <ion-icon class="menu-btn" name="menu"></ion-icon>
             </label>
         </div>
-        <div class="logo"><a href="/home"><img src="../static/images/logo-yazdan%20(2).png"></a></div>
+        <div class="logo"><a href="/en/home"><img src="/static/images/logo-yazdan%20(2).png"></a></div>
         <div class="search-box">
-            <form action="/search/" method="POST">
+            <form action="/en/search/" method="POST">
                 {% csrf_token %}
                 <label>
-                    <input type ="text" name ="search" id ="srch" placeholder="جست و جو">
+                    <input type ="text" name ="search" id ="srch" placeholder="Search">
                 </label>
                 <button type ="submit"><i class="fa fa-search"></i></button>
             </form>
@@ -32,31 +33,31 @@
             </a>
         </div>
         <ul>
-            <li><a href="/home">خانه</a></li>
-            <li><a href="/blog">مقالات</a></li>
-            <li><a href="/product">محصولات</a></li>
-            <li><a href="/about-us">درباره ما</a></li>
+            <li><a href="/en/home">Home</a></li>
+            <li><a href="/en/blog">Blog</a></li>
+            <li><a href="/en/product">Products</a></li>
+            <li><a href="/en/about-us">About Us</a></li>
             <li>
                 <a href="tel:+989122857381"><ion-icon name="call-outline"></ion-icon></a>
                 <a href="https://api.whatsapp.com/send?phone=+989122857381" target="_blank"><ion-icon name="logo-whatsapp"></ion-icon></a>
                 <a href="https://maps.app.goo.gl/KEnVCG1zKCzi52kw7 " target="_blank"><ion-icon name="location-sharp"></ion-icon></a>
             </li>
         </ul>
-    </nav>   
+    </nav>
     <section class="row-p">
-        <h1 style="font-family: font2;margin-bottom: 50px; font-size: 35pt;">محصولات ما</h1>
+        <h1 style="font-family: font2;margin-bottom: 50px; font-size: 35pt;">Our Products</h1>
         {% for item in products %}
             <article class="col-p">
                 {% if item.is_special %}
-                    <span class="sale">ویژه!</span>
+                    <span class="sale">Special!</span>
                 {% endif %}
                 <figure class="figure">
                     <div class="img">
-                        <img src="../../{{ item.picture }}">
+                        <img src="/{{ item.picture }}">
                     </div>
-                    <h2>{{ item.name }}</h2>
-                    <figcaption>{{ item.discription }}</figcaption>
-                    <a href="/product/{{ item.id }}"><button class="btn">ادامه مطلب</button></a>
+                    <h2>{{ item.EN_name }}</h2>
+                    <figcaption>{{ item.EN_discription }}</figcaption>
+                    <a href="/en/product/{{ item.id }}"><button class="btn">Read More</button></a>
                 </figure>
             </article>
         {% endfor %}
@@ -80,8 +81,8 @@
                 </a>
             <!-- end of social icon -->
         </div>
-        <a class="footer-text" href="/contact-us">پیامی دارید؟برای ما با کلیک کردن پیام بگذارید</a>
-        <p class="footer-text">&copy; ۱۴۰۳ وب‌سایت یزدان بافت. تمامی حقوق محفوظ است. | طراحی توسط TopUP</p>
+            <a class="footer-text" href="/en/contact-us">You can leave your message by clicking here.</a>
+            <p class="footer-text">&copy;2024 Yazdan Baft website. All rights reserved. | Designed by TopUP</p>
         </div>
     </footer>
     <button id="scrollBtn"><ion-icon name="arrow-up-circle"></ion-icon></button>

@@ -8,7 +8,7 @@ from django.contrib import messages
 # Create your views here.
 
 
-def email(request):
+def email(request, lh):
     user = request.user
     if request.method == 'POST':
         if user.is_staff:
@@ -21,6 +21,6 @@ def email(request):
             else:
                 messages.error(request, 'چیزی رو اشتباه وارد کردید برای اطمینان دوباره جاهای خالی را پر کنید!')
     if user.is_staff:
-        return render(request, 'email_admin.html')
+        return render(request, 'Fa/email_admin.html')
     else:
         return redirect('/admin')

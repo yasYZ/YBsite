@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iranian Yazdan Baft co. - Searching</title>
+    <link rel="stylesheet" href="/static/css/search_result.css">
+    <link rel="stylesheet" href="/static/css/en_styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="/static/images/logoyazdan_32x32.ico" type="image/x-icon">
+</head>
+<body>
+    <nav class="nav">
+        <div class="menu">
+            <label for="chk1">
+                <ion-icon class="menu-btn" name="menu"></ion-icon>
+            </label>
+        </div>
+        <div class="logo"><a href="/en/home"><img src="/static/images/logo-yazdan%20(2).png"></a></div>
+        <div class="search-box">
+            <form action="/en/search/" method="POST">
+                {% csrf_token %}
+                <label>
+                    <input type ="text" name ="search" id ="srch" placeholder="Search">
+                </label>
+                <button type ="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <div style="display: none" class="Close">
+            <a class="close-btn" onclick="CloseNav">
+                <ion-icon id="Close" name="close-sharp"></ion-icon>
+            </a>
+        </div>
+        <ul>
+            <li><a href="/en/home">Home</a></li>
+            <li><a href="/en/blog">Blog</a></li>
+            <li><a href="/en/product">Products</a></li>
+            <li><a href="/en/about-us">About Us</a></li>
+            <li>
+                <a href="tel:+989122857381"><ion-icon name="call-outline"></ion-icon></a>
+                <a href="https://api.whatsapp.com/send?phone=+989122857381" target="_blank"><ion-icon name="logo-whatsapp"></ion-icon></a>
+                <a href="https://maps.app.goo.gl/KEnVCG1zKCzi52kw7 " target="_blank"><ion-icon name="location-sharp"></ion-icon></a>
+            </li>
+        </ul>
+    </nav>
+    <h2>Searching Results</h2>
+    <section class="row">
+        {% for item in blog_result %}
+        <article class="col">
+            <figure class="content-box">
+                <div class="img-box">
+                    <img class="content-img" src="/{{ item.picture }}">
+                </div>
+                <h3 class="content">{{ item.EN_name }}</h3>
+                <figcaption class="content">{{ item.EN_discription }}</figcaption>
+                <p class="content">{{ item.date }}|| Blog</p>
+                <a href="/en/blog/{{ item.id }}"><button class="more">Read More</button></a>
+            </figure>
+        </article>
+        {% endfor %}
+        {% for item in product_result %}
+        <article class="col">
+            <figure class="content-box">
+                <div class="img-box">
+                    <img class="content-img" src="/{{ item.picture }}">
+                </div>
+                <h3 class="content">{{ item.EN_name }}</h3>
+                <figcaption class="content">{{ item.EN_discription }}</figcaption>
+                <p class="content">Product</p>
+                <a href="/en/product/{{ item.id }}"><button class="more">Read More</button></a>
+            </figure>
+        </article>
+        {% endfor %}
+        {% for item in licences_result %}
+        <article class="col">
+            <figure class="content-box">
+                <div class="img-box">
+                    <img class="content-img" src="/{{ item.picture }}">
+                </div>
+                <h3 class="content">{{ item.EN_title }}</h3>
+                <figcaption class="content">{{ item.EN_caption }}</figcaption>
+                <p class="content">Certificates</p>
+                <a href="/en/certificate"><button class="more">Read More</button></a>
+            </figure>
+        </article>
+        {% endfor %}
+    </section>
+    <button id="scrollBtn"><ion-icon name="arrow-up-circle"></ion-icon></button>
+<!--    end     -->
+    <script>
+        function toggleMenu() {
+            var menuUl = document.querySelector(".nav ul");
+            menuUl.classList.toggle("show");
+            var close = document.querySelector('.close-btn');
+            close.style.display = 'block';
+        }
+
+        document.querySelector(".menu-btn").addEventListener("click", function () {
+            // Toggle the mobile menu
+            toggleMenu();
+        });
+
+        document.querySelectorAll(".nav ul li a").forEach(function (menuItem) {
+            menuItem.addEventListener("click", function () {
+            // Hide the mobile menu
+            toggleMenu();
+            });
+        });
+        function CloseNav() {
+            var menuUl = document.querySelector(".nav .show");
+            var closeBTN = document.querySelector(".close-btn");
+            menuUl.classList.remove("show");
+            closeBTN.style.display = "none";
+        }
+
+        document.querySelector(".close-btn").addEventListener("click", function () {
+            // Toggle the mobile menu
+            CloseNav();
+        });
+
+        document.querySelectorAll(".nav .close-btn").forEach(function (menuItem) {
+            menuItem.addEventListener("click", function () {
+            // Hide the mobile menu
+            CloseNav();
+            });
+        });
+        </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    var scrollBtn = document.getElementById("scrollBtn");
+
+    window.addEventListener("scroll", function () {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollBtn.classList.add("show");
+        } else {
+            scrollBtn.classList.remove("show");
+        }
+    });
+
+    scrollBtn.addEventListener("click", function () {
+        scrollToTop(1000); // Scroll to top with animation in 1000 milliseconds (1 second)
+    });
+
+    function scrollToTop(duration) {
+        var start = document.documentElement.scrollTop || document.body.scrollTop;
+        var startTime = Date.now();
+
+        function scroll() {
+            var currentTime = Date.now();
+            var timeElapsed = currentTime - startTime;
+            document.documentElement.scrollTop = document.body.scrollTop = easeInOutQuad(timeElapsed, start, -start, duration);
+
+            if (timeElapsed < duration) {
+                requestAnimationFrame(scroll);
+            } else {
+                document.documentElement.scrollTop = document.body.scrollTop = 0;
+            }
+        }
+
+        function easeInOutQuad(t, b, c, d) {
+            t /= d / 2;
+            if (t < 1) return c / 2 * t * t + b;
+            t--;
+            return -c / 2 * (t * (t - 2) - 1) + b;
+        }
+
+        requestAnimationFrame(scroll);
+    }
+});
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

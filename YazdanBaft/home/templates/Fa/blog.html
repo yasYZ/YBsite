@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>محصولات - شرکت یزدان بافت ایرانیان</title>
-    <link rel="stylesheet" href="../static/css/search_result.css">
+    <title>مقالات - شرکت یزدان بافت ایرانیان</title>
+    <link rel="stylesheet" href="/static/css/blog.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" href="../static/images/logoyazdan_32x32.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/logoyazdan_32x32.ico" type="image/x-icon">
 </head>
 <body>
     <nav class="nav">
@@ -16,9 +16,9 @@
                 <ion-icon class="menu-btn" name="menu"></ion-icon>
             </label>
         </div>
-        <div class="logo"><a href="/home"><img src="../static/images/logo-yazdan%20(2).png"></a></div>
+        <div class="logo"><a href="/fa/home"><img src="/static/images/logo-yazdan%20(2).png"></a></div>
         <div class="search-box">
-            <form action="/search/" method="POST">
+            <form action="/fa/search/" method="POST">
                 {% csrf_token %}
                 <label>
                     <input type ="text" name ="search" id ="srch" placeholder="جست و جو">
@@ -32,55 +32,56 @@
             </a>
         </div>
         <ul>
-            <li><a href="/home">خانه</a></li>
-            <li><a href="/blog">مقالات</a></li>
-            <li><a href="/product">محصولات</a></li>
-            <li><a href="/about-us">درباره ما</a></li>
+            <li><a href="/fa/home">خانه</a></li>
+            <li><a href="/fa/blog">مقالات</a></li>
+            <li><a href="/fa/product">محصولات</a></li>
+            <li><a href="/fa/about-us">درباره ما</a></li>
             <li>
                 <a href="tel:+989122857381"><ion-icon name="call-outline"></ion-icon></a>
                 <a href="https://api.whatsapp.com/send?phone=+989122857381" target="_blank"><ion-icon name="logo-whatsapp"></ion-icon></a>
                 <a href="https://maps.app.goo.gl/KEnVCG1zKCzi52kw7 " target="_blank"><ion-icon name="location-sharp"></ion-icon></a>
             </li>
         </ul>
-    </nav>
-    <h2>نتایج جستجو شده</h2>
+    </nav>   
     <section class="row">
-        {% for item in blog_result %}
-        <article class="col">
-            <figure class="content-box">
-                <img class="content-img" src="../../{{ item.picture }}">
-                <h3 class="content">{{ item.name }}</h3>
-                <figcaption class="content">{{ item.discription }}</figcaption>
-                <p class="content">{{ item.date }}|| مقاله</p>
-                <a href="/blog/{{ item.id }}"><button class="more">بیشتر بخوانید</button></a>
-            </figure>
-        </article>
-        {% endfor %}
-        {% for item in product_result %}
-        <article class="col">
-            <figure class="content-box">
-                <img class="content-img" src="../../{{ item.picture }}">
-                <h3 class="content">{{ item.name }}</h3>
-                <figcaption class="content">{{ item.discription }}</figcaption>
-                <p class="content">محصول</p>
-                <a href="/product/{{ item.id }}"><button class="more">بیشتر بخوانید</button></a>
-            </figure>
-        </article>
-        {% endfor %}
-        {% for item in licences_result %}
-        <article class="col">
-            <figure class="content-box">
-                <img class="content-img" src="../../{{ item.image }}">
-                <h3 class="content">{{ item.title }}</h3>
-                <figcaption class="content">{{ item.caption }}</figcaption>
-                <p class="content">مدرک</p>
-                <a href="/certificate"><button class="more">بیشتر بخوانید</button></a>
-            </figure>
-        </article>
+        <h1 style="font-family: font2;margin-bottom: 50px; font-size: 35pt;">مقالات</h1>
+        {% for item in blogs %}
+            <article class="col">
+                <figure class="figure">
+                    <div class="img">
+                        <img src="/{{ item.picture }}">
+                    </div>
+                    <h2>{{ item.name }}</h2>
+                    <figcaption>{{ item.discription }}</figcaption>
+                    <a href="/fa/blog/{{ item.id }}"><button class="btn">ادامه مطلب</button></a>
+                </figure>
+            </article>
         {% endfor %}
     </section>
+    <footer class="footer">
+        <div class="section-center">
+            <div class="social-icons">
+            <!-- social icon -->
+                <a href="tel:+989122857381" class="social-icon">
+                    <ion-icon name="call"></ion-icon>
+                </a>
+                <!-- end of social icon -->
+                <!-- social icon -->
+                <a href="https://maps.app.goo.gl/KEnVCG1zKCzi52kw7" class="social-icon">
+                    <ion-icon name="location-sharp"></ion-icon>
+                </a>
+                <!-- end of social icon -->
+                <!-- social icon -->
+                <a href="https://api.whatsapp.com/send?phone=+989122857381" class="social-icon">
+                    <ion-icon name="logo-whatsapp"></ion-icon>
+                </a>
+            <!-- end of social icon -->
+        </div>
+        <a class="footer-text" href="/fa/contact-us">پیامی دارید؟برای ما با کلیک کردن پیام بگذارید</a>
+        <p class="footer-text">&copy; ۱۴۰۳ وب‌سایت یزدان بافت. تمامی حقوق محفوظ است. | طراحی توسط TopUP</p>
+        </div>
+    </footer>
     <button id="scrollBtn"><ion-icon name="arrow-up-circle"></ion-icon></button>
-<!--    end     -->
     <script>
         function toggleMenu() {
             var menuUl = document.querySelector(".nav ul");

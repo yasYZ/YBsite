@@ -1,13 +1,16 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شرکت یزدان بافت ایرانیان - تولید کننده بیتو بگ قیر, کیسه قیر, جامبو بگ و پلی بگ قیر</title>
-    <link rel="stylesheet" href="../static/css/representatives.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" href="../static/images/logoyazdan_32x32.ico" type="image/x-icon">
+    <title>Iranian Yazdan Baft co. - Certificates & Credentials</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="stylesheet" href="/static/css/certificates.css">
+    <link rel="stylesheet" href="/static/css/en_styles.css">
+    <link rel="icon" href="/static/images/logoyazdan_32x32.ico" type="image/x-icon">
 </head>
 <body>
     <nav class="nav">
@@ -16,12 +19,12 @@
                 <ion-icon class="menu-btn" name="menu"></ion-icon>
             </label>
         </div>
-        <div class="logo"><a href="/home"><img src="../static/images/logo-yazdan%20(2).png"></a></div>
+        <div class="logo"><a href="/en/home"><img src="/static/images/logo-yazdan%20(2).png"></a></div>
         <div class="search-box">
-            <form action="/search/" method="POST">
+            <form action="/en/search/" method="POST">
                 {% csrf_token %}
                 <label>
-                    <input type ="text" name ="search" id ="srch" placeholder="جست و جو">
+                    <input type ="text" name ="search" id ="srch" placeholder="Search">
                 </label>
                 <button type ="submit"><i class="fa fa-search"></i></button>
             </form>
@@ -32,10 +35,10 @@
             </a>
         </div>
         <ul>
-            <li><a href="/home">خانه</a></li>
-            <li><a href="/blog">مقالات</a></li>
-            <li><a href="/product">محصولات</a></li>
-            <li><a href="/about-us">درباره ما</a></li>
+            <li><a href="/en/home">Home</a></li>
+            <li><a href="/en/blog">Blog</a></li>
+            <li><a href="/en/product">Products</a></li>
+            <li><a href="/en/about-us">About Us</a></li>
             <li>
                 <a href="tel:+989122857381"><ion-icon name="call-outline"></ion-icon></a>
                 <a href="https://api.whatsapp.com/send?phone=+989122857381" target="_blank"><ion-icon name="logo-whatsapp"></ion-icon></a>
@@ -43,20 +46,28 @@
             </li>
         </ul>
     </nav>
+    <h1 class="main-title">Our Certificates and Credentials</h1>
     <section class="row">
-        {% for item in represent %}
-        <article class="col">
-            <img class="img" src="../../{{ item.image }}">
-            <figure class="figure">
-                <h2 class="title">{{ item.title }}</h2>
-                <a class="caption" href="tel:{{ item.phone }}">شماره : {{ item.phone }}</a>
-                <p class="caption">اقای {{ item.name }}</p>
-                <p class="caption">ادرس : {{ item.address }}</p>
-            </figure>
-        </article>
+        {% for item in licences %}
+            <article class="col">
+                <span class="sale">licence</span>
+                <figure class="figure">
+                    <div class="modal-img">
+                        <img class="img" src="/{{ item.image }}" alt="Image 1" onclick="openModal('/{{ item.image }}')">
+                    </div>
+
+                    <div id="myModal" class="modal">
+                        <div class="content">
+                            <span class="close" onclick="closeModal()">&times;</span>
+                            <img class="modal-content" id="modalImage">
+                        </div>
+                    </div>
+                    <h2 class="title">{{ item.title }}</h2>
+                    <figcaption class="caption">{{ item.caption }}</figcaption>
+                </figure>
+            </article>
         {% endfor %}
     </section>
-        <!-- footer -->
         <footer class="footer">
             <div class="section-center">
                 <div class="social-icons">
@@ -76,37 +87,31 @@
                 </a>
                 <!-- end of social icon -->
             </div>
-            <a class="footer-text" href="/contact-us">پیامی دارید؟برای ما با کلیک کردن پیام بگذارید</a>
-            <p class="footer-text">&copy; ۱۴۰۳ وب‌سایت یزدان بافت. تمامی حقوق محفوظ است. | طراحی توسط TopUP</p>
+            <a class="footer-text" href="/en/contact-us">You can leave your message by clicking here.</a>
+            <p class="footer-text">&copy;2024 Yazdan Baft website. All rights reserved. | Designed by TopUP</p>
             </div>
         </footer>
         <button id="scrollBtn"><ion-icon name="arrow-up-circle"></ion-icon></button>
-        <!-- end! -->
-    <script>
-        function openModal() {
-        var modal = document.getElementById("myModal");
-        modal.style.display = "block";
-        setTimeout(function () {
-            modal.classList.add("show");
-        }, 50); // Adding a slight delay for better animation
+        <script>
+        function openModal(imageSrc) {
+            var modal = document.getElementById('myModal');
+            var modalImage = document.getElementById('modalImage');
+
+            modal.style.display = 'block';
+            modalImage.src = imageSrc;
         }
 
-        // Function to close the modal with animation
         function closeModal() {
-        var modal = document.getElementById("myModal");
-        modal.classList.remove("show");
-        setTimeout(function () {
-            modal.style.display = "none";
-        }, 300); // The duration of the animation (in milliseconds)
+            var modal = document.getElementById('myModal');
+            modal.style.display = 'none';
         }
 
-        // Close the modal if the user clicks outside the modal content
-        window.onclick = function (event) {
-        var modal = document.getElementById("myModal");
-        if (event.target == modal) {
-            closeModal();
+        window.onclick = function(event) {
+            var modal = document.getElementById('myModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
         }
-        };
     </script>
     <script>
         function toggleMenu() {
@@ -146,7 +151,7 @@
             });
         });
         </script>
-    <script>
+        <script>
         document.addEventListener("DOMContentLoaded", function () {
         var scrollBtn = document.getElementById("scrollBtn");
 

@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شرکت یزدان بافت ایرانیان - درباره ما - تماس با ما</title>
-    <link rel="stylesheet" href="../static/css/about_us.css">
+    <title>Iranian Yazdan Baft co. - About us & Call us</title>
+    <link rel="stylesheet" href="/static/css/about_us.css">
+    <link rel="stylesheet" href="/static/css/en_styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" href="../static/images/logoyazdan_32x32.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/logoyazdan_32x32.ico" type="image/x-icon">
 </head>
 <body>
     <nav class="nav">
@@ -16,12 +17,12 @@
                 <ion-icon class="menu-btn" name="menu"></ion-icon>
             </label>
         </div>
-        <div class="logo"><a href="/home"><img src="../static/images/logo-yazdan%20(2).png"></a></div>
+        <div class="logo"><a href="/en/home"><img src="/static/images/logo-yazdan%20(2).png"></a></div>
         <div class="search-box">
-            <form action="/search/" method="POST">
+            <form action="/en/search/" method="POST">
                 {% csrf_token %}
                 <label>
-                    <input type ="text" name ="search" id ="srch" placeholder="جست و جو">
+                    <input type ="text" name ="search" id ="srch" placeholder="Search">
                 </label>
                 <button type ="submit"><i class="fa fa-search"></i></button>
             </form>
@@ -32,10 +33,10 @@
             </a>
         </div>
         <ul>
-            <li><a href="/home">خانه</a></li>
-            <li><a href="/blog">مقالات</a></li>
-            <li><a href="/product">محصولات</a></li>
-            <li><a href="/about-us">درباره ما</a></li>
+            <li><a href="/en/home">Home</a></li>
+            <li><a href="/en/blog">Blog</a></li>
+            <li><a href="/en/product">Products</a></li>
+            <li><a href="/en/about-us">About Us</a></li>
             <li>
                 <a href="tel:+989122857381"><ion-icon name="call-outline"></ion-icon></a>
                 <a href="https://api.whatsapp.com/send?phone=+989122857381" target="_blank"><ion-icon name="logo-whatsapp"></ion-icon></a>
@@ -43,60 +44,60 @@
             </li>
         </ul>
     </nav>
-    </span><h1 class="first-title">درباره ما - تماس با ما</h1>
+    <h1 class="first-title">About US & Call US</h1>
     <section class="row">
         <article class="col">
-            <h2>درباره شرکت یزدان بافت</h2>
+            <h2>About Yazdan Baft Company</h2>
             <div class="text-box">
-                <p style="text-align: justify;">شرکت یزدان بافت فعالیت خود را در زمینه تولید کلیه مشتقات پلیمری، تولید گونی های پلاستیکی (پلی پروپیلن) و نایلون های عریض (پلی اتیلن)، بافت و دوخت کلیه گونی های صنعتی از قبیل انواع جامبو بگ، بیگ بگ و بیتوبگ آغاز نمود و با توجه به کیفیت بالای محصولات، در طی زمان فعالیت خود توانست رضایت مشتریان را جلب نمیاد.</p>
-                <p style="text-align: justify;">محصولات ما انواع جامبو بگ ، بیگ بگ و بیتو بگ در اندازه های مختلف (۵۰۰ تا ۲۵۰۰ کیلو گرمی) با مارک و بدون مارک، در مدل های ۸ بند، ۴ بند ، ۲ بند ، ۱ سر قیف و ۲ سر قیف و همچنین نایلون حریر با قیمت بسیار مناسب و طبق استاندارد های بین المللی می باشد.</p>
+                <p style="text-align: justify;">Yazdan Baft Company started its activities in the field of production of all polymer derivatives, manufacturing plastic sacks (polypropylene) and wide plastic sheets (polyethylene), and weaving and sewing all kinds of industrial sacks such as jumbo bags, big bags, and bitumen bags. Due to the high quality of its products, Yazdan Baft has been able to satisfy its customers over the course of its operations.</p>
+                <p style="text-align: justify;">Our products include various types of jumbo bags, big bags, and bitumen bags in different sizes (500 to 2500 kg), with or without branding, in models with 8 loops, 4 loops, 2 loops, 1 spout top, and 2 spout tops. Additionally, we offer silk nylon at very competitive prices and according to international standards.</p>
             </div>
-            <img class="img" src="../static/images/jumbobag3.jpg">
+            <img class="img" src="/static/images/jumbobag3.jpg">
         </article>
     </section>
     <section class="item-row">
         <article class="item-col">
             <figure>
-                <h2 class="item-title">تماس با ما</h2>
-                <p>مدیر عامل</p>
+                <h2 class="item-title">Call US</h2>
+                <p>Chief Executive Officer</p>
                 <a href="tel:+989122857381">| 7381 285 912 98+ |</a>
                 <a href="tel:+989121244160">| 160 1244 912 98+ |</a>
-                <p>مدیر فروش</p>
+                <p>Sales Manager</p>
                 <a href="#">09905427782</a>
             </figure>
-            <p>برای ثبت سفارش و تماس بر روی شماره ها کلیک کنید</p>
-            <a href="/representatives"><button class="btn">نماینده های ما</button></a>
+            <p>To place an order and contact us, click on the numbers</p>
+            <a href="/en/representatives"><button class="btn">representatives</button></a>
         </article>
         <article class="item-col">
             <figure>
-                <h2 class="item-title">آدرس</h2>
-                <p>آدرس دفتر</p>
-                <a>ج آدران - نرسیده به اسد اباد - شهرک صنعتی صباشهر(جوانزاد) - رو به روی کشتار گاه قائم - گلستان 4 - پ44 و پ19</a>
+                <h2 class="item-title">Address</h2>
+                <p>Office and factory address</p>
+                <a>No 19 & No 44, 4th Boostan, Opposite Qaem Slaughterhouse, Sabashahr Industrial Town (Javanzad), Before AsadAbad, Aderan Road, Tehran, Iran.</a>
             </figure>
-            <p>برای نمایش مکان ما روی آدرس ها کلیک کنید</p>
-            <a href="https://maps.app.goo.gl/KEnVCG1zKCzi52kw7" target="_blank"><button class="btn">مکان ما</button></a>
+            <p>To display our location on the map, click on the button</p>
+            <a href="https://maps.app.goo.gl/KEnVCG1zKCzi52kw7" target="_blank"><button class="btn">our location</button></a>
         </article>
         <article class="item-col">
             <figure>
-                <h2 class="item-title">سایت های ما</h2>
-                <p>یزدان بافت ایرانیان</p>
-                <a href="https://yazdanbaft.ir/" target="_blank">کلیک کنید</a>
-                <p>پوریا بافت معین</p>
-                <a href="https://pouryabaft.ir/" target="_blank">کلیک کنید</a>
+                <h2 class="item-title">Our other sites</h2>
+                <p>Iranian yazdan baft co.</p>
+                <a href="https://yazdanbaft.ir/" target="_blank">Click!</a>
+                <p>Pourya Baft co.</p>
+                <a href="https://pouryabaft.ir/" target="_blank">Click!</a>
             </figure>
-            <p>برای ثبت سفارش و تماس بر روی شماره ها کلیک کنید</p>
-            <a><button class="btn">سایت های ما</button></a>
+            <p>visit our other sites</p>
+            <a><button class="btn">our sites</button></a>
         </article>
         <article class="item-col">
             <figure>
-                <h2 class="item-title">ما در شبکه های اجتماعی</h2>
-                <p>واتساپ</p>
-                <a href="https://api.whatsapp.com/send?phone=+989122857381" target="_blank">کلیک کنید</a>
-                <p>تلگرام</p>
-                <a href="https://telegram.me/+989122857381" target="_blank">کلیک کنید</a>
+                <h2 class="item-title">We are on social media platforms.</h2>
+                <p>WhatsApp</p>
+                <a href="https://api.whatsapp.com/send?phone=+989122857381" target="_blank">Click!</a>
+                <p>Telegram</p>
+                <a href="https://telegram.me/+989122857381" target="_blank">Click!</a>
             </figure>
-            <p>برای ثبت سفارش و تماس بر روی شماره ها کلیک کنید</p>
-            <a><button class="btn">شبکه های اجتماعی</button></a>
+            <p>To place an order or contact us</p>
+            <a><button class="btn">social media</button></a>
         </article>
     </section>
         <!-- footer -->
@@ -119,8 +120,8 @@
                 </a>
                 <!-- end of social icon -->
             </div>
-            <a class="footer-text" href="/contact-us">پیامی دارید؟برای ما با کلیک کردن پیام بگذارید</a>
-            <p class="footer-text">&copy; ۱۴۰۳ وب‌سایت یزدان بافت. تمامی حقوق محفوظ است. | طراحی توسط TopUP</p>
+            <a class="footer-text" href="/en/contact-us">You can leave your message by clicking here.</a>
+            <p class="footer-text">&copy;2024 Yazdan Baft website. All rights reserved. | Designed by TopUP</p>
             </div>
         </footer>
         <button id="scrollBtn"><ion-icon name="arrow-up-circle"></ion-icon></button>

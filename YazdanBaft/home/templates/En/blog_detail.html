@@ -1,0 +1,174 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iranian Yazdan Baft co. - {% for item in blogs_detail %} {{ item.EN_main_title }}{% endfor %}</title>
+    <link rel="stylesheet" href="/static/css/blog.css">
+    <link rel="stylesheet" href="/static/css/en_styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="/static/images/logoyazdan_32x32.ico" type="image/x-icon">
+</head>
+<body>
+    <nav class="nav">
+        <div class="menu">
+            <label for="chk1">
+                <ion-icon class="menu-btn" name="menu"></ion-icon>
+            </label>
+        </div>
+        <div class="logo"><a href="/en/home"><img src="/static/images/logo-yazdan%20(2).png"></a></div>
+        <div class="search-box">
+            <form action="/en/search/" method="POST">
+                {% csrf_token %}
+                <label>
+                    <input type ="text" name ="search" id ="srch" placeholder="Search">
+                </label>
+                <button type ="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <div style="display: none" class="Close">
+            <a class="close-btn" onclick="CloseNav">
+                <ion-icon id="Close" name="close-sharp"></ion-icon>
+            </a>
+        </div>
+        <ul>
+            <li><a href="/en/home">Home</a></li>
+            <li><a href="/en/blog">Blog</a></li>
+            <li><a href="/en/product">Products</a></li>
+            <li><a href="/en/about-us">About Us</a></li>
+            <li>
+                <a href="tel:+989122857381"><ion-icon name="call-outline"></ion-icon></a>
+                <a href="https://api.whatsapp.com/send?phone=+989122857381" target="_blank"><ion-icon name="logo-whatsapp"></ion-icon></a>
+                <a href="https://maps.app.goo.gl/KEnVCG1zKCzi52kw7 " target="_blank"><ion-icon name="location-sharp"></ion-icon></a>
+            </li>
+        </ul>
+    </nav>
+    <section class="content-row">
+        {% for item in blogs_detail %}
+            <article class="content-col">
+                <figure>
+                    <div class="d">
+                        <h1 class="title" style="direction: rtl">{{ item.EN_main_title }}</h1>
+                        <img src="/{{ item.picture }}">
+                    </div>
+                    <p class="title-caption" style="margin-bottom: 30px">{{ item.EN_discription }}</p>
+                    <figcaption class="title-caption">{{ item.EN_main_discription }}</figcaption>
+                    {% if item.EN_title1 %}
+                        <h2 class="secondry-title">{{ item.EN_title1 }}</h2>
+                        {% if item.picture1 %}<img {% if item.left1 and item.right1 %} class="center" {% elif item.left1 %} class="left" {% elif item.right1 %} class="right" {% else %} class="center" {% endif %} src="/{{ item.picture1 }}">{% endif %}
+                        <figcaption class="caption">{{ item.EN_discription1 }}</figcaption>
+                    {% endif %}
+                    {% if item.EN_title2 %}
+                        <h2 class="secondry-title">{{ item.EN_title2 }}</h2>
+                        {% if item.picture1 %}<img {% if item.left2 and item.right2 %} class="center" {% elif item.left2 %} class="left" {% elif item.right2 %} class="right" {% else %} class="center" {% endif %} src="/{{ item.picture2 }}">{% endif %}
+                        <figcaption class="caption">{{ item.EN_discription2 }}</figcaption>
+                    {% endif %}
+                    {% if item.EN_title3 %}
+                        <h2 class="secondry-title">{{ item.EN_title3 }}</h2>
+                        {% if item.picture1 %}<img {% if item.left3 and item.right3 %} class="center" {% elif item.left3 %} class="left" {% elif item.right3 %} class="right" {% else %} class="center" {% endif %} src="/{{ item.picture3 }}">{% endif %}
+                        <figcaption class="caption">{{ item.EN_discription3 }}</figcaption>
+                    {% endif %}
+                    {% if item.EN_title4 %}
+                        <h2 class="secondry-title">{{ item.EN_title4 }}</h2>
+                        {% if item.picture1 %}<img {% if item.left4 and item.right4 %} class="center" {% elif item.left4 %} class="left" {% elif item.right4 %} class="right" {% else %} class="center" {% endif %} src="/{{ item.picture4 }}">{% endif %}
+                        <figcaption class="caption">{{ item.EN_discription4 }}</figcaption>
+                    {% endif %}
+                    {% if item.EN_title5 %}
+                        <h2 class="secondry-title">{{ item.EN_title5 }}</h2>
+                        {% if item.picture1 %}<img {% if item.left5 and item.right5 %} class="center" {% elif item.left5 %} class="left" {% elif item.right5 %} class="right" {% else %} class="center" {% endif %} src="/{{ item.picture5 }}">{% endif %}
+                        <figcaption class="caption">{{ item.EN_discription5 }}</figcaption>
+                    {% endif %}
+                </figure>
+            </article>
+        {% endfor %}
+    </section>
+    <footer class="footer">
+        <div class="section-center">
+            <div class="social-icons">
+            <!-- social icon -->
+            <a href="#" class="social-icon">
+                <ion-icon name="call"></ion-icon>
+            </a>
+            <!-- end of social icon -->
+            <!-- social icon -->
+            <a href="#" class="social-icon">
+                <ion-icon name="location-sharp"></ion-icon>
+            </a>
+            <!-- end of social icon -->
+            <!-- social icon -->
+            <a href="#" class="social-icon">
+                <ion-icon name="logo-whatsapp"></ion-icon>
+            </a>
+            <!-- end of social icon -->
+        </div>
+            <a class="footer-text" href="/en/contact-us">You can leave your message by clicking here.</a>
+            <p class="footer-text">&copy;2024 Yazdan Baft website. All rights reserved. | Designed by TopUP</p>
+        </div>
+    </footer>
+    <button id="scrollBtn"><ion-icon name="arrow-up-circle"></ion-icon></button>
+    <script>
+        function toggleMenu() {
+            var menuUl = document.querySelector(".nav ul");
+            menuUl.classList.toggle("show");
+        }
+
+        document.querySelector(".menu-btn").addEventListener("click", function () {
+            // Toggle the mobile menu
+            toggleMenu();
+        });
+
+        document.querySelectorAll(".nav ul li a").forEach(function (menuItem) {
+            menuItem.addEventListener("click", function () {
+            // Hide the mobile menu
+            toggleMenu();
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    var scrollBtn = document.getElementById("scrollBtn");
+
+    window.addEventListener("scroll", function () {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollBtn.classList.add("show");
+        } else {
+            scrollBtn.classList.remove("show");
+        }
+    });
+
+    scrollBtn.addEventListener("click", function () {
+        scrollToTop(1000); // Scroll to top with animation in 1000 milliseconds (1 second)
+    });
+
+    function scrollToTop(duration) {
+        var start = document.documentElement.scrollTop || document.body.scrollTop;
+        var startTime = Date.now();
+
+        function scroll() {
+            var currentTime = Date.now();
+            var timeElapsed = currentTime - startTime;
+            document.documentElement.scrollTop = document.body.scrollTop = easeInOutQuad(timeElapsed, start, -start, duration);
+
+            if (timeElapsed < duration) {
+                requestAnimationFrame(scroll);
+            } else {
+                document.documentElement.scrollTop = document.body.scrollTop = 0;
+            }
+        }
+
+        function easeInOutQuad(t, b, c, d) {
+            t /= d / 2;
+            if (t < 1) return c / 2 * t * t + b;
+            t--;
+            return -c / 2 * (t * (t - 2) - 1) + b;
+        }
+
+        requestAnimationFrame(scroll);
+    }
+});
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

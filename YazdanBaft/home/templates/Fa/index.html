@@ -4,22 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تولید کننده جامبوبگ، بيگ بگ - پوریا بافت </title>
+    <title>تولید کننده جامبوبگ، بيگ بگ و بیتوبگ قیر - یزدان بافت ایرانیان </title>
+    <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="description" content="تولید کننده و فروشنده ی انواع جامبو بگ , بیتو بگ , بیگ بگ و مشقات پلیمیری از جمله نایلون عریض نایلون قیر ,گونی لمینت شده و گونی های نایلون دار دوخت و بافت گونی های پلاستیکی"/>
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/alert.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" href="../static/images/logoyazdan_32x32.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/logoyazdan_32x32.ico" type="image/x-icon">
 </head>
 <body>
+    {% if messages %}
+        {% for message in messages %}
+            <div id="alert" class="alert" role="alert">
+                <strong>{{ message }}</strong>
+                <a class="alert-btn" id="close-alert"><ion-icon name="close-outline"></ion-icon></a>
+            </div>
+        {% endfor %}
+    {% endif %}
     <nav class="nav">
         <div class="menu">
             <label for="chk1">
                 <ion-icon class="menu-btn" name="menu"></ion-icon>
             </label>
         </div>
-        <div class="logo"><a href="/home"><img src="../static/images/logo-yazdan%20(2).png"></a></div>
+        <div class="logo"><a href="/fa/home"><img src="/static/images/logo-yazdan%20(2).png"></a></div>
         <div class="search-box">
-            <form action="/search/" method="POST">
+            <form action="/fa/search/" method="POST">
                 {% csrf_token %}
                 <label>
                     <input type="text" name="search" placeholder="جست و جو">
@@ -31,24 +41,24 @@
                 <ion-icon id="Close" name="close-sharp"></ion-icon>
             </a>
         <ul>
-            <li><a href="/home">خانه</a></li>
-            <li><a href="/blog">مقالات</a></li>
-            <li><a href="/product">محصولات</a></li>
-            <li><a href="/about-us">درباره ما</a></li>
+            <li><a href="/fa/home">خانه</a></li>
+            <li><a href="/fa/blog">مقالات</a></li>
+            <li><a href="/fa/product">محصولات</a></li>
+            <li><a href="/fa/about-us">درباره ما</a></li>
             <li>
                 <a href="tel:+989122857381"><ion-icon name="call-outline"></ion-icon></a>
                 <a href="https://api.whatsapp.com/send?phone=+989122857381" target="_blank"><ion-icon name="logo-whatsapp"></ion-icon></a>
                 <a href="https://maps.app.goo.gl/KEnVCG1zKCzi52kw7 " target="_blank"><ion-icon name="location-sharp"></ion-icon></a>
                 {% if user.is_staff %}
                     <a href="/admin"><ion-icon name="server-outline"></ion-icon></a>
-                    <a href="/email"><ion-icon name="logo-google"></ion-icon></a>
+                    <a href="/fa/email"><ion-icon name="logo-google"></ion-icon></a>
                 {% endif %}
             </li>
         </ul>
     </nav>
     <header>
         <figure class="filled-shape">
-            <img src="../static/images/jumbobag1.png">
+            <img src="/static/images/jumbobag1.png">
             <h1 style="margin-right: 1px;">یزدان بافت اولین تولید کننده ی گونی در استان تهران</h1>
             <figcaption>یزدان بافت شرکتی با استاندارد های روز جهانی پا به عرصه تولید گونی های 1 تا 2 تنی گذاشته. یزدان بافت از سال 1380 با نام های تجاری دیگر مانند تلیس بافت و پوریا بافت تاسیس شده. یزدان بافت با دستگاه های بروز گونی دوزی و گونی بافی کیفیت کالای شما را تضمین میکند.</figcaption>
         </figure>
@@ -118,11 +128,11 @@
                         <span class="sale">ویژه!</span>
                     {% endif %}
                     <figure>
-                        <img src="../../{{ item.picture }}">
+                        <img src="/{{ item.picture }}">
                         <h2>{{ item.name }}</h2>
                         <figcaption>{{ item.discription }}</figcaption>
                     </figure>
-                    <a href="/product/{{ item.id }}"><button class="more">بیشتر بخوانید</button></a>
+                    <a href="/fa/product/{{ item.id }}"><button class="more">بیشتر بخوانید</button></a>
                 </article>
             {% endfor %}
         </section>
@@ -132,7 +142,7 @@
             {% for item in gallery %}
                 <article class="gallery-col">
                     <div class="gallery">
-                        <img class="img--" src="../../{{ item.file }}" alt="Image 1" onclick="openModal('../../{{ item.file }}')">
+                        <img class="img--" src="/{{ item.file }}" alt="Image 1" onclick="openModal('/{{ item.file }}')">
                     </div>
 
                     <div id="myModal" class="modal">
@@ -148,7 +158,7 @@
         <h2 class="h2">گواهی نامه ها:</h2>
         <section class="cert-row">
             <article class="cert-col">
-                <a href="/certificate"><img class="img-cert" src="../static/images/cert (1).jpg"></a>
+                <a href="/fa/certificate"><img class="img-cert" src="/static/images/cert (1).jpg"></a>
             </article>
         </section>
         <!-- footer -->
@@ -171,7 +181,7 @@
                 </a>
                 <!-- end of social icon -->
             </div>
-            <a class="footer-text" href="/contact-us">پیامی دارید؟برای ما با کلیک کردن پیام بگذارید</a>
+            <a class="footer-text" href="/fa/contact-us">پیامی دارید؟برای ما با کلیک کردن پیام بگذارید</a>
             <p class="footer-text">&copy; ۱۴۰۳ وب‌سایت یزدان بافت. تمامی حقوق محفوظ است. | طراحی توسط TopUP</p>
             </div>
         </footer>
@@ -278,6 +288,16 @@
             requestAnimationFrame(scroll);
         }
     });
+    </script>
+    <script>
+        var alert = document.getElementById('alert');
+        var myButton = document.getElementById('close-alert');
+
+        function addNewClass() {
+            alert.classList.add('alert-close');
+        }
+
+        myButton.addEventListener('click', addNewClass);
     </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

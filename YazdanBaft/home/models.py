@@ -5,8 +5,11 @@ from django.db import models
 
 class represent(models.Model):
     title = models.CharField(max_length=35)
+    EN_title = models.CharField(max_length=35)
     name = models.CharField(max_length=35)
+    EN_name = models.CharField(max_length=35)
     address = models.TextField(max_length=110)
+    EN_address = models.TextField(max_length=110)
     phone = models.CharField(max_length=11)
     image = models.ImageField(upload_to='static/images/')
 

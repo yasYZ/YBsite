@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محصولات - شرکت یزدان بافت ایرانیان</title>
+    <link rel="stylesheet" href="/static/css/email.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="/static/images/logoyazdan_32x32.ico" type="image/x-icon">
+</head>
+<body>
+    <nav class="nav">
+        <div class="menu">
+            <label for="chk1">
+                <ion-icon class="menu-btn" name="menu"></ion-icon>
+            </label>
+        </div>
+        <div class="logo"><a href="/fa/home"><img src="/static/images/logo-yazdan%20(2).png"></a></div>
+        <div class="search-box">
+            <form action="/fa/search/" method="POST">
+                {% csrf_token %}
+                <label>
+                    <input type ="text" name ="search" id ="srch" placeholder="جست و جو">
+                </label>
+                <button type ="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <div style="display: none" class="Close">
+            <a class="close-btn" onclick="CloseNav">
+                <ion-icon id="Close" name="close-sharp"></ion-icon>
+            </a>
+        </div>
+        <ul>
+            <li><a href="/fa/home">خانه</a></li>
+            <li><a href="/fa/blog">مقالات</a></li>
+            <li><a href="/fa/product">محصولات</a></li>
+            <li><a href="/fa/about-us">درباره ما</a></li>
+            <li>
+                <a href="tel:+989122857381"><ion-icon name="call-outline"></ion-icon></a>
+                <a href="https://api.whatsapp.com/send?phone=+989122857381" target="_blank"><ion-icon name="logo-whatsapp"></ion-icon></a>
+                <a href="https://maps.app.goo.gl/KEnVCG1zKCzi52kw7 " target="_blank"><ion-icon name="location-sharp"></ion-icon></a>
+                {% if user.is_staff %}
+                    <a href="/admin"><ion-icon name="server-outline"></ion-icon></a>
+                    <a href="/email"><ion-icon name="logo-google"></ion-icon></a>
+                {% endif %}
+            </li>
+        </ul>
+    </nav>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert">
+                <strong> {{ message }} </strong>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <form class="row" method="POST" action="/email/">
+        {% csrf_token %}
+        <label>
+            <input class="mail" type="text" name="subject" placeholder="موضوع ایمیل را وارد کنید" required>
+            <input class="mail" type="email" name="email" placeholder="ایمیل را وارد کنید" required>
+            <input class="message" type="text" name="message" placeholder="پیام خود را وارد کنید" required>
+        </label>
+        <input type="submit" value="ارسال" class="submit-button">
+    </form>
+    <script>
+        function toggleMenu() {
+            var menuUl = document.querySelector(".nav ul");
+            menuUl.classList.toggle("show");
+            var close = document.querySelector('.close-btn');
+            close.style.display = 'block';
+        }
+
+        document.querySelector(".menu-btn").addEventListener("click", function () {
+            // Toggle the mobile menu
+            toggleMenu();
+        });
+
+        document.querySelectorAll(".nav ul li a").forEach(function (menuItem) {
+            menuItem.addEventListener("click", function () {
+            // Hide the mobile menu
+            toggleMenu();
+            });
+        });
+        function CloseNav() {
+            var menuUl = document.querySelector(".nav .show");
+            var closeBTN = document.querySelector(".close-btn");
+            menuUl.classList.remove("show");
+            closeBTN.style.display = "none";
+        }
+
+        document.querySelector(".close-btn").addEventListener("click", function () {
+            // Toggle the mobile menu
+            CloseNav();
+        });
+
+        document.querySelectorAll(".nav .close-btn").forEach(function (menuItem) {
+            menuItem.addEventListener("click", function () {
+            // Hide the mobile menu
+            CloseNav();
+            });
+        });
+        </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شرکت یزدان بافت ایرانیان - برای ما پیام بگذارید</title>
+    <title>Iranian Yazdan Baft co. - Contact US</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-    <link rel="stylesheet" href="../static/css/contactus.css">
-    <link rel="icon" href="../static/images/logoyazdan_32x32.ico" type="image/x-icon">
+    <!-- styles -->
+    <link rel="stylesheet" href="/static/css/contactus.css">
+    <link rel="stylesheet" href="/static/css/en_styles.css">
+    <link rel="icon" href="/static/images/logoyazdan_32x32.ico" type="image/x-icon">
 </head>
 <body>
     {% if messages %}
@@ -26,12 +28,12 @@
                 <ion-icon class="menu-btn" name="menu"></ion-icon>
             </label>
         </div>
-        <div class="logo"><a href="/home"><img src="../static/images/logo-yazdan%20(2).png"></a></div>
+        <div class="logo"><a href="/en/home"><img src="/static/images/logo-yazdan%20(2).png"></a></div>
         <div class="search-box">
-            <form action="/search/" method="POST">
+            <form action="/en/search/" method="POST">
                 {% csrf_token %}
                 <label>
-                    <input type ="text" name ="search" id ="srch" placeholder="جست و جو">
+                    <input type ="text" name ="search" id ="srch" placeholder="Search">
                 </label>
                 <button type ="submit"><i class="fa fa-search"></i></button>
             </form>
@@ -42,10 +44,10 @@
             </a>
         </div>
         <ul>
-            <li><a href="/home">خانه</a></li>
-            <li><a href="/blog">مقالات</a></li>
-            <li><a href="/product">محصولات</a></li>
-            <li><a href="/about-us">درباره ما</a></li>
+            <li><a href="/en/home">Home</a></li>
+            <li><a href="/en/blog">Blog</a></li>
+            <li><a href="/en/product">Products</a></li>
+            <li><a href="/en/about-us">About Us</a></li>
             <li>
                 <a href="tel:+989122857381"><ion-icon name="call-outline"></ion-icon></a>
                 <a href="https://api.whatsapp.com/send?phone=+989122857381" target="_blank"><ion-icon name="logo-whatsapp"></ion-icon></a>
@@ -58,20 +60,20 @@
     <section id="section-wrapper">
         <div class="box-wrapper">
             <div class="info-wrap">
-                <h2 class="info-title">فرم ارتباط با ما</h2>
-                <h3 class="info-sub-title">فرم را پر کنید تیم ما در 24 ساعت آینده پاسخگوی شما خواهند بود</h3>
+                <h2 class="info-title">Contact Form</h2>
+                <h3 class="info-sub-title">Please fill out the form. Our team will respond to you within 24 hours.</h3>
                 <ul class="info-details">
                     <li>
                         <i class="fas fa-phone-alt"></i>
-                        <span>تلفن:</span> <a href="tel:+989122857381">7381 285 912 98+</a>
+                        <span>phone:</span> <a href="tel:+989122857381">7381 285 912 98+</a>
                     </li>
                     <li>
                         <i class="fas fa-paper-plane"></i>
-                        <span>ایمیل:</span> <a href="mailto:yazdanbaft@gmail.com">yazdanbaft@gmail.com</a>
+                        <span>email:</span> <a href="mailto:yazdanbaft@gmail.com">yazdanbaft@gmail.com</a>
                     </li>
                     <li>
                         <i class="fas fa-globe"></i>
-                        <span>وب سایت:</span> <a href="https://www.yazdanbaft.ir">www.yazdanbaft.ir</a>
+                        <span>web site:</span> <a href="https://www.yazdanbaft.ir">www.yazdanbaft.ir</a>
                     </li>
                 </ul>
                 <ul class="social-icons">
@@ -83,25 +85,25 @@
             <div class="form-wrap">
                 <form action="/contact-us/" method="POST">
                     {% csrf_token %}
-                    <h2 class="form-title">پیام بدهید</h2>
+                    <h2 class="form-title">Send Message</h2>
                     <div class="form-fields">
                         <div class="form-group">
-                            <input name="fname" type="text" class="fname" placeholder="نام خانوادگی" required>
+                            <input name="fname" type="text" class="fname" placeholder="Last Name" required>
                         </div>
                         <div class="form-group">
-                            <input name="lname" type="text" class="lname" placeholder="نام" required>
+                            <input name="lname" type="text" class="lname" placeholder="First Name" required>
                         </div>
                         <div class="form-group">
-                            <input name="email" type="email" class="email" placeholder="ایمیل" required>
+                            <input name="email" type="email" class="email" placeholder="Email" required>
                         </div>
                         <div class="form-group">
-                            <input name="num" type="number" class="phone" placeholder="شماره تلفن همراه" required>
+                            <input name="num" type="number" class="phone" placeholder="Phone Number" required>
                         </div>
                         <div class="form-group">
-                            <textarea name="message" id="" placeholder="پیام خود را بنویسید" required></textarea>
+                            <textarea name="message" id="" placeholder="Enter Your Message" required></textarea>
                         </div>
                     </div>
-                    <input type="submit" value="ارسال" class="submit-button">
+                    <input type="submit" value="Send" class="submit-button">
                 </form>
             </div>
         </div>
