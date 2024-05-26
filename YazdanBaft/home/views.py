@@ -11,13 +11,16 @@ from django.utils.translation import get_language
 # Create your views here.
 
 
-def set_language(request):
+def set_language(request, **args):
     current_language = get_language()
 
-    if current_language == 'fa':
-        return redirect('fa/')
+    if not args:
+        if current_language == 'fa':
+            return redirect('fa/')
+        else:
+            return redirect('en/')
     else:
-        return redirect('en/')
+        return render(request, '404.html', status=404)
 
 
 def home(request, lh):
@@ -140,4 +143,4 @@ def gallerys(request, lh):
 
 
 def custom_404(request, exception):
-    return render(request, '404.html')
+    return render(request, '404.html', status=404)

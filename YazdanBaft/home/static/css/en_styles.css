@@ -18,3 +18,45 @@ body{
 .content-col figcaption{
     font-size: 14pt;!important;
 }
+.filled-shape figcaption {
+    margin-left: 20px;
+}
+@media screen and (max-width: 1200px){
+    header{
+        margin-top: 60px;
+    }
+    .filled-shape{
+        margin-top: 30px;
+        padding: 20px;
+        width: 100%;
+        height: 700px;
+        border-radius: 0;
+        margin: 0;
+    }
+    .filled-shape img{
+        margin-top: 50px;
+        width: 80%;
+        animation: loadtransformws 3s;
+    }
+    .about-sack{
+        margin-top: 30px;
+        padding: 20px;
+        position: relative;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        animation: loadtransformws 3s;
+    }
+    .filled-shape h1{
+        margin-right: 0;
+        color: white;
+        text-align: center;
+        animation: loadtransformws 3s;
+    }
+    .filled-shape figcaption{
+        margin-left: 0;!important;
+        width: 100%;
+        color: #ffffff;
+        animation: loadtransformws 3s;
+    }
+}
