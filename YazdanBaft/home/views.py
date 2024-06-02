@@ -102,13 +102,13 @@ def contact_us(request, lh):
 
         if current_language == 'Fa':
             messages.success(request, 'پیام شما در سیستم ثبت شد از طریق ایمیل یا تلفن با شما ارتباط بر قرار میکنیم!')
-            return redirect('')
+            return redirect('/fa')
         elif current_language == 'fa':
             messages.success(request, 'پیام شما در سیستم ثبت شد از طریق ایمیل یا تلفن با شما ارتباط بر قرار میکنیم!')
-            return redirect('')
+            return redirect('/fa')
         else:
             messages.success(request, 'Your message is successfully sent!')
-            return redirect('')
+            return redirect('/en')
 
     if current_language == 'Fa':
         return render(request, 'Fa/contact-us.html')

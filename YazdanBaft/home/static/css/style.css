@@ -432,6 +432,8 @@ header{
 /* gallery */
 .gallery-row{
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     width: 100%;
     padding: 50px;
