@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iranian Yazdan Baft co. - Producer of Jumbo Bags, Big Bags, and Bitumen Asphalt Bags</title>
-    <meta name="keywords" content="HTML, CSS, JavaScript">
-    <meta name="description" content="تولید کننده و فروشنده ی انواع جامبو بگ , بیتو بگ , بیگ بگ و مشقات پلیمیری از جمله نایلون عریض نایلون قیر ,گونی لمینت شده و گونی های نایلون دار دوخت و بافت گونی های پلاستیکی"/>
+    {% for item in seo %}
+        <title>{{ item.EN_title }}</title>
+        <meta name="description" content="{{ item.EN_description }}"/>
+        <meta name="keywords" content="{{ item.EN_keywords }}">
+    {% if item.EN_Href_Lang and item.EN_Href_Lang_Url %}<link rel="alternate" hreflang="en" href="{{ item.EN_Href_Lang_Url }}" />{% endif %}
+    {% endfor %}
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/en_styles.css">
     <link rel="stylesheet" href="/static/css/alert.css">
@@ -158,6 +161,20 @@ We have competitive prices and special offers for purchasing large bags. For mor
                 </article>
             {% endfor %}
         </section>
+        <!--  our colleagues  -->
+        <h2 class="h2">our colleagues</h2>
+        <div class="car-container">
+            <section class="carousel-row">
+                {% for item in col %}
+                    <article class="carousel-col">
+                        <div class="img-border">
+                            <img src="/{{ item.image }}" alt="Image 1">
+                        </div>
+                    </article>
+                {% endfor %}
+            </section>
+        </div>
+        <div class="line"></div>
         <!-- certificate -->
         <h2 class="h2">Certificates :</h2>
         <section class="cert-row">
@@ -195,6 +212,7 @@ We have competitive prices and special offers for purchasing large bags. For mor
         </footer>
         <button id="scrollBtn"><ion-icon name="arrow-up-circle"></ion-icon></button>
         <!-- end! -->
+    <script src="/static/js/car.js"></script>
     <script src="/static/js/scripts.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

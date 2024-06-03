@@ -30,3 +30,21 @@ class ContactUS(models.Model):
 
     def __str__(self):
         return self.first_name
+
+
+class Colleagues(models.Model):
+    image = models.ImageField(upload_to='static/gallery/')
+    name = models.CharField(max_length=35)
+
+
+class SiteSeoTool(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField(max_length=500)
+    EN_title = models.CharField(max_length=200)
+    EN_description = models.TextField(max_length=500)
+    keywords = models.TextField(max_length=500, blank=True)
+    EN_keywords = models.TextField(max_length=500, blank=True)
+    Fa_Href_Lang = models.CharField(max_length=200, blank=True)
+    Fa_Href_Lang_Url = models.CharField(max_length=200, blank=True)
+    EN_Href_Lang = models.CharField(max_length=200, blank=True)
+    EN_Href_Lang_Url = models.CharField(max_length=200, blank=True)

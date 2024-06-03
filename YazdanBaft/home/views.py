@@ -4,11 +4,21 @@ from products.models import Products
 from blog.models import Blog
 from licences.models import License
 from home.models import ContactUS
-from .models import gallery, represent
+from .models import gallery, represent, SiteSeoTool, Colleagues
 from django.contrib import messages
 from django.utils.translation import get_language
+from django.views.generic import ListView
 
 # Create your views here.
+
+
+class MyListView(ListView):
+    model = SiteSeoTool
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['seo'] = self.model
+        return context
 
 
 def set_language(request, **args):
@@ -26,14 +36,16 @@ def set_language(request, **args):
 def home(request, lh):
     products = Products.objects.all()
     gallery_img = gallery.objects.all()
+    col = Colleagues.objects.all()
+
 
     current_language = lh
     if current_language == 'fa':
-        return render(request, 'Fa/index.html', {'products': products, 'gallery': gallery_img})
+        return render(request, 'Fa/index.html', {'products': products, 'gallery': gallery_img, 'col': col})
     elif current_language == 'Fa':
-        return render(request, 'Fa/index.html', {'products': products, 'gallery': gallery_img})
+        return render(request, 'Fa/index.html', {'products': products, 'gallery': gallery_img, 'col': col})
     else:
-        return render(request, 'En/index.html', {'products': products, 'gallery': gallery_img})
+        return render(request, 'En/index.html', {'products': products, 'gallery': gallery_img, 'col': col})
 
 
 def about_us(request, lh):
@@ -129,17 +141,6 @@ def representatives1(request, lh):
         return render(request, 'Fa/representatives.html', {'represent': representatives})
     else:
         return render(request, 'En/representatives.html', {'represent': representatives})
-
-
-def gallerys(request, lh):
-    current_language = lh
-
-    if current_language == 'Fa':
-        return render(request, 'Fa/gallery.html')
-    elif current_language == 'fa':
-        return render(request, 'Fa/gallery.html')
-    else:
-        return render(request, 'En/gallery.html')
 
 
 def custom_404(request, exception):

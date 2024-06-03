@@ -564,6 +564,51 @@ header{
 	from {	transform: rotate(-20deg) scale(1); }
 	to {	transform: rotate(-20deg) scale(1.1); }
 }
+.car-container {
+    margin: 150px 0;
+    padding: 0 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.line{
+    height: 1px;
+    width: 100%;
+    border-bottom: groove 3px;
+}
+
+.carousel-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    gap: 60px;
+    height: 300px;
+}
+
+.carousel-col {
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    position: absolute;
+    opacity: 0.7;
+    width: 245px;
+    margin: 50px;
+}
+
+.carousel-col img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-col.center img {
+    transform: scale(1.5);
+    border-bottom: 3px red solid;
+    padding: 5px;
+}
 /* footer */
 .footer {
     border-radius: 50% 50% 0 0;
