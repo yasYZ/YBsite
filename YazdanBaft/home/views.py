@@ -71,13 +71,19 @@ def search(request, lh):
             en_licences_result = License.objects.filter(EN_title__contains=search_input)
             blog_result = Blog.objects.filter(name__contains=search_input)
             en_blog_result = Blog.objects.filter(EN_name__contains=search_input)
-            if product_result or licences_result or blog_result:
+            if product_result or licences_result or blog_result or en_blog_result or en_licences_result or en_product_result:
                 if current_language == 'Fa':
-                    return render(request, 'Fa/search_result.html', {'blog_result': blog_result, 'product_result': product_result, 'licences_result': licences_result})
+                    return render(request, 'Fa/search_result.html', {'blog_result': blog_result if blog_result else en_blog_result,
+                                                                     'product_result': product_result if product_result else en_product_result,
+                                                                     'licences_result': licences_result if licences_result else en_licences_result})
                 elif current_language == 'fa':
-                    return render(request, 'Fa/search_result.html', {'blog_result': blog_result, 'product_result': product_result, 'licences_result': licences_result})
+                    return render(request, 'Fa/search_result.html', {'blog_result': blog_result if blog_result else en_blog_result,
+                                                                     'product_result': product_result if product_result else en_product_result,
+                                                                     'licences_result': licences_result if licences_result else en_licences_result})
                 else:
-                    return render(request, 'En/search_result.html', {'blog_result': en_blog_result, 'product_result': en_product_result, 'licences_result': en_licences_result})
+                    return render(request, 'En/search_result.html', {'blog_result': en_blog_result if en_blog_result else blog_result,
+                                                                     'product_result': en_product_result if en_product_result else product_result,
+                                                                     'licences_result': en_licences_result if en_licences_result else licences_result})
             else:
                 if current_language == 'Fa':
                     messages.error(request, 'نتیجه ای یافت نشد')
