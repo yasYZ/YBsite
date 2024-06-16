@@ -220,7 +220,13 @@ ion-icon:hover {
     display: block;
     border-bottom: groove 2px;
     margin: 0 auto;
+}
+.row .col:first-child{
     border-radius: 10px 10px 0 0;
+}
+.row .col:last-child{
+    border-radius: 0 0 10px 10px;
+    border-bottom: 0;
 }
 .row .col:hover {
     background-color: #9f1e1e;

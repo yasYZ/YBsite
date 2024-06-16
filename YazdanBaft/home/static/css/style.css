@@ -203,7 +203,7 @@ ion-icon:hover {
     transition: opacity 0.3s ease-in-out;
 }
 #scrollBtn.show {
-    display: block;
+    display: block;!important;
 }
 /* start */
 header{
