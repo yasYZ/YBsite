@@ -1,3 +1,11 @@
+body{
+    background: url("../images/photo-1597773150796-e5c14ebecbf5.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    font-family: font1;
+    direction: rtl;
+}
 /* start */
 form{
     font-family: font1;
