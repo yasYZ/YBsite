@@ -1,3 +1,10 @@
+body{
+    font-family: font1;
+    direction: rtl;
+    background: url("../images/1014.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 /* start */
 h2{
     margin-top: 170px;

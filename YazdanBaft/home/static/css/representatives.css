@@ -1,4 +1,10 @@
-/* start */
+body{
+    font-family: font1;
+    direction: rtl;
+    background: url("../images/photo-1597773150796-e5c14ebecbf5.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 .row{
     margin-top: 150px;
     width: 100%;

@@ -1,3 +1,13 @@
+body{
+    height: 100vh;
+    font-family: font1;
+    direction: rtl;
+    background: linear-gradient(
+    to left,
+    #5897fb,
+    #004e96
+    );
+}
 /* start */
 .row{
     padding: 180px;
