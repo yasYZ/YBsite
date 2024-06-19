@@ -230,7 +230,7 @@ header{
     animation: loadtransform 3s;
 }
 .filled-shape h1{
-    margin-right: -50px;
+    margin-left: 20px;
     color: white;
     font-family: font2;
     text-align: center;
