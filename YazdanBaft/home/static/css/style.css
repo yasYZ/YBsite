@@ -211,11 +211,10 @@ header{
     text-align: center;
     position: relative;
     width: 100%;
-    height: 100%;
 }
 .filled-shape{
     width: 700px;
-    height: 100%;
+    height: 1000px;
     background: linear-gradient(
          to left,
          rgb(52, 152, 219),
@@ -230,7 +229,7 @@ header{
     animation: loadtransform 3s;
 }
 .filled-shape h1{
-    margin-left: 20px;
+    margin-left: 10px;
     color: white;
     font-family: font2;
     text-align: center;
