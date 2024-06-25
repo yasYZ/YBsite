@@ -33,7 +33,10 @@
                     </div>
                     <h2>{{ item.EN_name }}</h2>
                     <figcaption>{{ item.EN_discription }}</figcaption>
-                    <a href="/en/product/{{ item.id }}"><button class="btn">Read More</button></a>
+                    <a href="https://www.instagram.com/?url=https://www.yazdanbaft.com/{{ item.id }}" target="_blank" class="class-icon"><button class="icon"><i class="fa fa-instagram"></i></button></a>
+                    <a href="https://api.whatsapp.com/send?text=https://www.yazdanbaft.com/blog/{{ item.id }}" target="_blank" class="class-icon"><button class="icon"><i class="fa fa-whatsapp"></i></button></a>
+                    <a href="https://telegram.me/share/url?url=https://www.yazdanbaft.com/blog/{{ item.id }}" target="_blank" class="class-icon"><button class="icon"><i class="fa fa-telegram"></i></button></a>
+                    <a style="display: block;" href="/en/product/{{ item.id }}"><button class="btn">Read More</button></a>
                 </figure>
             </article>
         {% endfor %}
