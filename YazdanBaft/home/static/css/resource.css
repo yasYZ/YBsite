@@ -69,7 +69,13 @@ ion-icon:hover {
     color:#fff;
     font-family: font2;
     text-transform: uppercase;
-    font-size: 28pt;
+    height: 120px;
+    width: 350px;!important;
+    margin-bottom: 30px;
+}
+.nav .logo img{
+    height: 100%;
+    margin-right: 80px;
 }
 .nav .search-box{
     flex: 1;
