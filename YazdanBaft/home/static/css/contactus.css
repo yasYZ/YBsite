@@ -15,6 +15,16 @@ form{
     padding: 10px;
     margin-top: 200px;
 }
+@keyframes loadtransform{
+    0%{
+        opacity: 0;
+        scale: 1.2;
+    }
+    100%{
+        opacity: 1;
+        scale: 1;
+    }
+}
 .box-wrapper{
     position: relative;
     display: table;
@@ -22,6 +32,7 @@ form{
     margin:auto;
     margin-top:35px;
     border-radius: 30px;
+    animation: loadtransform 3s;
 }
 .info-wrap{
     width:35%;
