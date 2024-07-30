@@ -14,89 +14,31 @@
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     <link rel="stylesheet" href="/static/css/certificates.css">
+    <link rel="stylesheet" href="/static/css/resource.css">
     <link rel="stylesheet" href="/static/css/en_styles.css">
     <link rel="icon" href="/static/images/logoyazdan_32x32.ico" type="image/x-icon">
 </head>
 <body>
-    <nav class="nav">
-        <div class="menu">
-            <label for="chk1">
-                <ion-icon class="menu-btn" name="menu"></ion-icon>
-            </label>
-        </div>
-        <div class="logo"><a href="/en/home"><img src="/static/images/logo-yazdan%20(2).png"></a></div>
-        <div class="search-box">
-            <form action="/en/search/" method="POST">
-                {% csrf_token %}
-                <label>
-                    <input type ="text" name ="search" id ="srch" placeholder="Search">
-                </label>
-                <button type ="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
-        <div style="display: none" class="Close">
-            <a class="close-btn" onclick="CloseNav">
-                <ion-icon id="Close" name="close-sharp"></ion-icon>
-            </a>
-        </div>
-        <ul>
-            <li><a href="/en/home">Home</a></li>
-            <li><a href="/en/blog">Blog</a></li>
-            <li><a href="/en/product">Products</a></li>
-            <li><a href="/en/about-us">About Us</a></li>
-            <li>
-                <a href="tel:+989122857381"><ion-icon name="call-outline"></ion-icon></a>
-                <a href="https://api.whatsapp.com/send?phone=+989122857381" target="_blank"><ion-icon name="logo-whatsapp"></ion-icon></a>
-                <a href="https://maps.app.goo.gl/KEnVCG1zKCzi52kw7 " target="_blank"><ion-icon name="location-sharp"></ion-icon></a>
-            </li>
-        </ul>
-    </nav>
+    {% include "En/nav.html" %}
+    {% block content %}
+    {% endblock %}
     <h1 class="main-title">Our Certificates and Credentials</h1>
-    <section class="row">
-        {% for item in licences %}
-            <article class="col">
-                <span class="sale">licence</span>
-                <figure class="figure">
-                    <div class="modal-img">
-                        <img class="img" src="/{{ item.image }}" alt="Image 1" onclick="openModal('/{{ item.image }}')">
-                    </div>
-
-                    <div id="myModal" class="modal">
-                        <div class="content">
-                            <span class="close" onclick="closeModal()">&times;</span>
-                            <img class="modal-content" id="modalImage">
-                        </div>
-                    </div>
-                    <h2 class="title">{{ item.title }}</h2>
-                    <figcaption class="caption">{{ item.caption }}</figcaption>
-                </figure>
-            </article>
-        {% endfor %}
-    </section>
-
 
     <div class="tab">
-    <button class="tablinks" onclick="openCity(event, 'str')">standard</button>
-    <button class="tablinks" onclick="openCity(event, 'iso')">iso</button>
-    <button class="tablinks" onclick="openCity(event, 'fel')">felan</button>
-        </div>
+        {% for item in licences %}
+        <button class="tablinks" onclick="openCity(event, '{{ item.image }}')">{{ item.EN_title }}</button>
+        {% endfor %}
+    </div>
 
-        <div id="str" class="tabcontent">
-            <h3>standard</h3>
-            <p>lwknfiasnfijbinnoingoinwoigns</p>
-        </div>
+    {% for item in licences %}
+    <div id="{{ item.image }}" class="tabcontent">
+        <h3>{{ item.EN_title }}</h3>
+        <p>{{ item.EN_caption }}</p>
+        <img class="certii" src="/{{ item.image }}" alt="{{ item.image }}">
+    </div>
+    {% endfor %}
 
-        <div id="iso" class="tabcontent">
-            <h3>iso</h3>
-            <p>wkjdgbsdbadngojandgoibawjipdgpiwgd.</p>
-            <img class="certii" src="../../static/images/photo-1597773150796-e5c14ebecbf5.png" alt="#">
-        </div>
-
-        <div id="fel" class="tabcontent">
-            <h3>felan</h3>
-            <p>kjabfipbwsfhbwisbfouhwbouqwbpqwb</p>
-        </div>
-        <button id="scrollBtn"><ion-icon name="arrow-up-circle"></ion-icon></button>
+    <button id="scrollBtn"><ion-icon name="arrow-up-circle"></ion-icon></button>
     <script src="/static/js/scripts.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

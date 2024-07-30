@@ -102,11 +102,13 @@ We have competitive prices and special offers for purchasing large bags. For mor
                         <span class="sale">Special!</span>
                     {% endif %}
                     <figure>
-                        <img src="/{{ item.picture }}">
+                        <div class="img-box2">
+                            <img src="/{{ item.picture }}">
+                        </div>
                         <h2>{{ item.EN_name }}</h2>
                         <figcaption>{{ item.EN_discription }}</figcaption>
                     </figure>
-                    <a href="/en/product/{{ item.id }}"><button class="more">بیشتر بخوانید</button></a>
+                    <a href="/en/product/{{ item.id }}"><button class="more">Read More</button></a>
                 </article>
             {% endfor %}
         </section>
@@ -143,12 +145,29 @@ We have competitive prices and special offers for purchasing large bags. For mor
         </div>
         <div class="line"></div>
         <!-- certificate -->
-    <a href="/en/certificate"><h2 class="h2">Certificates :</h2></a>
-        <section class="cert-row">
-            <article class="cert-col">
-                <a href="/en/certificate"><img class="img-cert" src="/static/images/cert (1).jpg"></a>
+    <a><h2 class="h2">Certificates :</h2></a>
+    <a href="/en/certificate">
+        <section class="cert-row" href="/fa/certificates.html">
+            <article class="cert-col wow bounceInRight">
+                <img class="img-cert" src="/static/images/brsm.jpg">
+            </article>
+            <article class="cert-col wow bounceInRight" data-wow-delay="1s">
+                <img class="img-cert" src="/static/images/naci.png">
+            </article>
+            <article class="cert-col wow bounceInRight" data-wow-delay="2s">
+                <img class="img-cert" src="/static/images/iaf.jpg">
+            </article>
+            <article class="cert-col wow bounceInLeft center" data-wow-delay="2s">
+                <img class="img-cert" src="/static/images/standard.png">
+            </article>
+            <article class="cert-col wow bounceInLeft" data-wow-delay="1s">
+                <img class="img-cert" src="/static/images/iso1.png">
+            </article>
+            <article class="cert-col wow bounceInLeft">
+                <img class="img-cert" src="/static/images/iso2.png">
             </article>
         </section>
+    </a>
     {% include "En/footer.html" %}
     {% block footer %}
     {% endblock %}

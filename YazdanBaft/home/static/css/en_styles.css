@@ -14,6 +14,9 @@ body{
     border-bottom-right-radius: 50%;!important;
     border-top-right-radius: 50%;!important;
 }
+.filled-shape h1{
+    margin: 0;!important;
+}
 .about-sack{
     right: 0;!important;
     left: 60%;!important;

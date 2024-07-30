@@ -4,47 +4,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شرکت یزدان بافت ایرانیان - گواهی ها و مدارک ما</title>
+    <title>Iranian Yazdan Baft co. - Certificates & Credentials</title>
     {% for item in seo %}
-        <meta name="description" content="{{ item.description }}"/>
-        <meta name="keywords" content="{{ item.keywords }}">
-    {% if item.Fa_Href_Lang and item.Fa_Href_Lang_Url %}<link rel="alternate" hreflang="fa" href="{{ item.Fa_Href_Lang_Url }}" />{% endif %}
+        <meta name="description" content="{{ item.EN_description }}"/>
+        <meta name="keywords" content="{{ item.EN_keywords }}">
+    {% if item.EN_Href_Lang and item.EN_Href_Lang_Url %}<link rel="alternate" hreflang="fa" href="{{ item.EN_Href_Lang_Url }}" />{% endif %}
     {% endfor %}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-    <link rel="stylesheet" href="/static/css/resource.css">
     <link rel="stylesheet" href="/static/css/certificates.css">
+    <link rel="stylesheet" href="/static/css/resource.css">
     <link rel="icon" href="/static/images/logoyazdan_32x32.ico" type="image/x-icon">
 </head>
 <body>
     {% include "Fa/nav.html" %}
     {% block content %}
     {% endblock %}
-    <h1 class="main-title">مدارک و گواهی نامه های ما</h1>
-    <section class="row">
-        {% for item in licences %}
-            <article class="col">
-                <span class="sale">مدارک</span>
-                <figure class="figure">
-                    <div class="modal-img">
-                        <img class="img" src="/{{ item.image }}" alt="Image 1" onclick="openModal('/{{ item.image }}')">
-                    </div>
+    <h1 class="main-title">مدارک و گوهی نامه های ما</h1>
 
-                    <div id="myModal" class="modal">
-                        <div class="content">
-                            <span class="close" onclick="closeModal()">&times;</span>
-                            <img class="modal-content" id="modalImage">
-                        </div>
-                    </div>
-                    <h2 class="title">{{ item.title }}</h2>
-                    <figcaption class="caption">{{ item.caption }}</figcaption>
-                </figure>
-            </article>
+
+    <div class="tab">
+        {% for item in licences %}
+        <button class="tablinks" onclick="openCity(event, '{{ item.image }}')">{{ item.title }}</button>
         {% endfor %}
-    </section>
-    {% include "Fa/footer.html" %}
-    {% block footer %}
-    {% endblock %}
+    </div>
+
+    {% for item in licences %}
+    <div id="{{ item.image }}" class="tabcontent">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.caption }}</p>
+        <img class="certii" src="/{{ item.image }}" alt="{{ item.image }}">
+    </div>
+    {% endfor %}
+
+    <button id="scrollBtn"><ion-icon name="arrow-up-circle"></ion-icon></button>
+    <script src="/static/js/scripts.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        function openCity(evt, cityName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the link that opened the tab
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+    </script>
 </body>
 </html>

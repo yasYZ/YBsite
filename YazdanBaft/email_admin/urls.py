@@ -4,5 +4,5 @@ from django.views.generic import RedirectView
 from . import views
 
 urlpatterns = [
-    path('/email/', views.email, name='email'),
+    path('email/', views.email, name='email'),
 ]
