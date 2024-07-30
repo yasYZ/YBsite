@@ -10,45 +10,16 @@
         <meta name="keywords" content="{{ item.EN_keywords }}">
     {% if item.EN_Href_Lang and item.EN_Href_Lang_Url %}<link rel="alternate" hreflang="fa" href="{{ item.EN_Href_Lang_Url }}" />{% endif %}
     {% endfor %}
+    <link rel="stylesheet" href="/static/css/resource.css">
     <link rel="stylesheet" href="/static/css/products.css">
     <link rel="stylesheet" href="/static/css/en_styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="/static/images/logoyazdan_32x32.ico" type="image/x-icon">
 </head>
 <body>
-    <nav class="nav">
-        <div class="menu">
-            <label for="chk1">
-                <ion-icon class="menu-btn" name="menu"></ion-icon>
-            </label>
-        </div>
-        <div class="logo"><a href="/en/home"><img src="/static/images/logo-yazdan%20(2).png"></a></div>
-        <div class="search-box">
-            <form action="/en/search/" method="POST">
-                {% csrf_token %}
-                <label>
-                    <input type ="text" name ="search" id ="srch" placeholder="Search">
-                </label>
-                <button type ="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
-        <div style="display: none" class="Close">
-            <a class="close-btn" onclick="CloseNav">
-                <ion-icon id="Close" name="close-sharp"></ion-icon>
-            </a>
-        </div>
-        <ul>
-            <li><a href="/en/home">Home</a></li>
-            <li><a href="/en/blog">Blog</a></li>
-            <li><a href="/en/product">Products</a></li>
-            <li><a href="/en/about-us">About Us</a></li>
-            <li>
-                <a href="tel:+989122857381"><ion-icon name="call-outline"></ion-icon></a>
-                <a href="https://api.whatsapp.com/send?phone=+989122857381" target="_blank"><ion-icon name="logo-whatsapp"></ion-icon></a>
-                <a href="https://maps.app.goo.gl/KEnVCG1zKCzi52kw7 " target="_blank"><ion-icon name="location-sharp"></ion-icon></a>
-            </li>
-        </ul>
-    </nav>
+    {% include "En/nav.html" %}
+    {% block content %}
+    {% endblock %}
     <section class="content-row">
         {% for item in product %}
             <aside class="side">
@@ -91,36 +62,8 @@
             </article>
         {% endfor %}
     </section>
-    <footer class="footer">
-        <div class="section-center">
-            <div class="social-icons">
-            <!-- social icon -->
-            <a href="#" class="social-icon">
-                <ion-icon name="call"></ion-icon>
-            </a>
-            <!-- end of social icon -->
-            <!-- social icon -->
-            <a href="#" class="social-icon">
-                <ion-icon name="location-sharp"></ion-icon>
-            </a>
-            <!-- end of social icon -->
-            <!-- social icon -->
-            <a href="#" class="social-icon">
-                <ion-icon name="logo-whatsapp"></ion-icon>
-            </a>
-            <!-- end of social icon -->
-        </div>
-            <a class="footer-text" href="/en/contact-us">You can leave your message by clicking here.</a>
-            <p class="footer-text">&copy;2024 Yazdan Baft website. All rights reserved. | Designed by TopUP</p>
-                <a href="/fa">
-                    <p class="footer-text" href="/fa">Change language</p>
-                    <ion-icon name="globe-outline"></ion-icon>
-                </a>
-        </div>
-    </footer>
-    <button id="scrollBtn"><ion-icon name="arrow-up-circle"></ion-icon></button>
-    <script src="/static/js/scripts.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    {% include "En/footer.html" %}
+    {% block footer %}
+    {% endblock %}
 </body>
 </html>

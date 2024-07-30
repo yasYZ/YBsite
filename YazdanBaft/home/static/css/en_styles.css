@@ -1,6 +1,10 @@
 body{
     direction: ltr;!important;
 }
+.nav .logo img{
+    height: 100%;
+    margin-left: 80px;!important;
+}
 .footer-text{
     font-family: sans-serif;!important;
     letter-spacing: var(--letterSpacing);

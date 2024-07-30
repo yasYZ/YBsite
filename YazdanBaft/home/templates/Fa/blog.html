@@ -10,44 +10,15 @@
         <meta name="keywords" content="{{ item.keywords }}">
     {% if item.Fa_Href_Lang and item.Fa_Href_Lang_Url %}<link rel="alternate" hreflang="fa" href="{{ item.Fa_Href_Lang_Url }}" />{% endif %}
     {% endfor %}
+    <link rel="stylesheet" href="/static/css/resource.css">
     <link rel="stylesheet" href="/static/css/blog.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="/static/images/logoyazdan_32x32.ico" type="image/x-icon">
 </head>
 <body>
-    <nav class="nav">
-        <div class="menu">
-            <label for="chk1">
-                <ion-icon class="menu-btn" name="menu"></ion-icon>
-            </label>
-        </div>
-        <div class="logo"><a href="/fa/home"><img src="/static/images/logo-yazdan%20(2).png"></a></div>
-        <div class="search-box">
-            <form action="/fa/search/" method="POST">
-                {% csrf_token %}
-                <label>
-                    <input type ="text" name ="search" id ="srch" placeholder="جست و جو">
-                </label>
-                <button type ="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
-        <div style="display: none" class="Close">
-            <a class="close-btn" onclick="CloseNav">
-                <ion-icon id="Close" name="close-sharp"></ion-icon>
-            </a>
-        </div>
-        <ul>
-            <li><a href="/fa/home">خانه</a></li>
-            <li><a href="/fa/blog">مقالات</a></li>
-            <li><a href="/fa/product">محصولات</a></li>
-            <li><a href="/fa/about-us">درباره ما</a></li>
-            <li>
-                <a href="tel:+989122857381"><ion-icon name="call-outline"></ion-icon></a>
-                <a href="https://api.whatsapp.com/send?phone=+989122857381" target="_blank"><ion-icon name="logo-whatsapp"></ion-icon></a>
-                <a href="https://maps.app.goo.gl/KEnVCG1zKCzi52kw7 " target="_blank"><ion-icon name="location-sharp"></ion-icon></a>
-            </li>
-        </ul>
-    </nav>   
+    {% include "Fa/nav.html" %}
+    {% block content %}
+    {% endblock %}
     <section class="row">
         <h1 style="font-family: font2;margin-bottom: 50px; font-size: 35pt;">مقالات</h1>
         {% for item in blogs %}
@@ -58,41 +29,16 @@
                     </div>
                     <h2>{{ item.name }}</h2>
                     <figcaption>{{ item.discription }}</figcaption>
-                    <a href="/fa/blog/{{ item.id }}"><button class="btn">ادامه مطلب</button></a>
+                    <a href="https://www.instagram.com/?url=https://www.yazdanbaft.com/{{ item.id }}" target="_blank" class="class-icon"><button class="icon"><i class="fa fa-instagram"></i></button></a>
+                    <a href="https://api.whatsapp.com/send?text=https://www.yazdanbaft.com/blog/{{ item.id }}" target="_blank" class="class-icon"><button class="icon"><i class="fa fa-whatsapp"></i></button></a>
+                    <a href="https://telegram.me/share/url?url=https://www.yazdanbaft.com/blog/{{ item.id }}" target="_blank" class="class-icon"><button class="icon"><i class="fa fa-telegram"></i></button></a>
+                    <a style="display: block" href="/fa/blog/{{ item.id }}"><button class="btn">ادامه مطلب</button></a>
                 </figure>
             </article>
         {% endfor %}
     </section>
-    <footer class="footer">
-        <div class="section-center">
-            <div class="social-icons">
-            <!-- social icon -->
-                <a href="tel:+989122857381" class="social-icon">
-                    <ion-icon name="call"></ion-icon>
-                </a>
-                <!-- end of social icon -->
-                <!-- social icon -->
-                <a href="https://maps.app.goo.gl/KEnVCG1zKCzi52kw7" class="social-icon">
-                    <ion-icon name="location-sharp"></ion-icon>
-                </a>
-                <!-- end of social icon -->
-                <!-- social icon -->
-                <a href="https://api.whatsapp.com/send?phone=+989122857381" class="social-icon">
-                    <ion-icon name="logo-whatsapp"></ion-icon>
-                </a>
-            <!-- end of social icon -->
-        </div>
-        <a class="footer-text" href="/fa/contact-us">پیامی دارید؟برای ما با کلیک کردن پیام بگذارید</a>
-        <p class="footer-text">&copy; ۱۴۰۳ وب‌سایت یزدان بافت. تمامی حقوق محفوظ است. | طراحی توسط TopUP</p>
-                <a href="/en">
-                    <p class="footer-text" href="/en">عوض کردن زبان</p>
-                    <ion-icon name="globe-outline"></ion-icon>
-                </a>
-        </div>
-    </footer>
-    <button id="scrollBtn"><ion-icon name="arrow-up-circle"></ion-icon></button>
-    <script src="/static/js/scripts.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    {% include "Fa/footer.html" %}
+    {% block footer %}
+    {% endblock %}
 </body>
 </html>

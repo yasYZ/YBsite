@@ -1,211 +1,3 @@
-@font-face {
-    font-family: font1;
-    src: url(../fonts/VAZIRMATN-REGULAR.TTF);
-}
-@font-face {
-    font-family: font2;
-    src: url(../fonts/VAZIRMATN-BLACK.TTF);
-}
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    transition: all .2s;
-}
-:root {
-  --primaryColor: #a82424;
-  --secondaryColor: #52353d;
-  --mainDark: #52353d;
-  --mainWhite: #fff;
-  --mainGrey: #e5e5e5;
-  --slantedText: "Grand Hotel", cursive;
-  --mainTransition: all 0.3s linear;
-  --letterSpacing: 0.5rem;
-}
-body{
-    height: 100vh;
-    font-family: font1;
-    direction: rtl;
-}
-.container-fluid{
-    width: 100%;
-    height: auto;
-}
-.nav{
-    border-radius: 0 0 50% 50%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width:100%;
-    height: 150px;
-    padding-right: 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 99;
-    box-shadow: 0 0 10px #000;
-    background: rgb(50, 50, 65);
-}
-#chk1{
-    display: none;
-}
-ion-icon {
-    cursor: pointer;
-    font-size: 20pt;
-    color: white;
-}
-ion-icon:hover {
-    color: #6a6a6a;
-}
-.menu-btn{
-    font-size: 30pt;
-    margin-top: 15px;
-}
-.nav .logo{
-    flex: 1;
-    color:#fff;
-    font-family: font2;
-    text-transform: uppercase;
-    font-size: 28pt;
-}
-.nav .search-box{
-    flex: 1;
-    position: relative;
-}
-.search-box input {
-    width:100%;
-    height: 40px;
-    border: none;
-    outline: none;
-    background:#f2f2f2;
-    border-radius: 10px;
-    font-family: font1;
-    color:black;
-    font-size: 16px;
-    padding-left: 5px;
-    padding-right: 40px;
-    text-align: center;
-}
-.search-box button {
-    cursor: pointer;
-    width:40px;
-    height: 40px;
-    border-radius: 10px;
-    border:none;
-    position: absolute;
-    top:0;
-    right: 0;
-    transform: scale(0.9);
-    background: rgb(23, 39, 107);
-    color: #fff;
-}
-.search-box button:hover{
-    background: rgb(0, 56, 255);
-}
-.nav ul {
-    flex:2;
-    display: flex;
-    justify-content: space-evenly;
-}
-.nav ul li{
-    list-style: none;
-}
-.nav ul li a{
-    text-decoration: none;
-    color:#fff;
-    font-size: 16pt;
-    text-transform: uppercase;
-    padding: 10px 15px;
-    transition: all .4s;
-}
-.nav ul li a:hover{
-    color: #6a6a6a;
-}
-.nav .menu{
-    font-size: 2.5em;
-    display: none;
-}
-.menu ion-icon:hover{
-    transform: rotate(90deg);
-}
-.close-btn{
-    display: none;
-    position: absolute;
-    top: 50px;
-    right: 50px;
-    z-index: 100;
-    width: 30px;
-    height: 30px;
-    background-color: #1b1b1b;
-    border-radius: 50%;
-}
-@media screen and (max-width: 1215px) {
-    .nav ul {
-        display: none;
-        position: fixed;
-        top: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.5);
-        height: 100%;
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        transition: right 0.5s linear;
-    }
-    .nav ul.show {
-        display: flex;
-    }
-    .nav ul li {
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-    }
-    .nav .menu {
-        display: block;
-        width: 50px;
-        text-align: center;
-    }
-    #chk1:checked ~ ul {
-        right: 0;
-    }
-    .nav ul li a {
-        font-size: 20pt;
-    }
-    .nav .logo {
-        display: none;
-    }
-    .search-box {
-        flex: 2;
-        margin-right: auto;
-    }
-    .search-box input {
-        width: 80%;
-        padding-right: 5px;
-        padding-left: 5px;
-    }
-    .search-box button {
-        width: 20%;
-    }
-}
-#scrollBtn {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background-color: rgb(50, 50, 65);
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: opacity 0.3s ease-in-out;
-}
-
-#scrollBtn.show {
-    display: block;
-}
-/* start */
 .h2{
     text-align: center;
     font-family: font2;
@@ -281,6 +73,22 @@ ion-icon:hover {
         width: 300px;
         margin-right: 0;
     }
+}
+.class-icon{
+    display: inline;
+}
+.icon{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background-color: #b917d5;
+    border: none;
+    border-radius: 5px;
+    transition: .5s;
+}
+.icon:hover{
+    color: white;
+    background-color: rgb(82, 82, 82);
 }
 .btn{
     margin-top: 10px;
@@ -412,35 +220,3 @@ ion-icon:hover {
         font-size: 20pt;
     }
 }
-/* footer */
-.footer {
-    border-radius: 50% 50% 0 0;
-    background-color: rgb(50, 50, 65);
-    text-align: center;
-    padding: 60px;
-}
-.social-icon {
-    color: var(--mainWhite);
-    font-size: 1.3rem;
-    margin-right: 1rem;
-    transition: var(--mainTransition);
-}
-.social-icon:hover {
-    color: var(--primaryColor);
-}
-.footer-text {
-    text-transform: uppercase;
-    color: var(--mainWhite);
-    margin-top: 1rem;
-    font-size: 0.85rem;
-}
-.footer a {
-    text-decoration: none;
-}
-.topic{
-    text-align: center;
-    font-family: 'poppins', sans-serif;
-    font-size: 30px;
-    color: #162938;
-}
-/* footer */
