@@ -6,7 +6,7 @@
         </div>
         <div class="logo"><a href="/en/home"><img src="/static/images/yb-wite-sma.png" alt="yazdanbaft-logo"></a></div>
         <div class="search-box">
-            <form action="/en/search/" method="POST">
+            <form action="/en/search/" method="POST" style="direction: rtl">
                 {% csrf_token %}
                 <label>
                     <input type ="text" name ="search" id ="srch" placeholder="Search">
@@ -14,8 +14,8 @@
                 <button type ="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
-        <div style="display: none" class="Close">
-            <a class="close-btn" onclick="CloseNav">
+        <div class="Close">
+            <a style="display: none" class="close-btn" onclick="CloseNav">
                 <ion-icon id="Close" name="close-sharp"></ion-icon>
             </a>
         </div>

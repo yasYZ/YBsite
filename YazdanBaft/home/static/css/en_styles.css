@@ -3,9 +3,15 @@
 body{
     direction: ltr;!important;
 }
+.nav{
+    padding-right: 30px;!important;
+}
 .nav .logo img{
     height: 100%;
     margin-left: 80px;!important;
+}
+.nav .menu{
+    margin: 0 0 30px 30px;!important;
 }
 .footer-text{
     font-family: sans-serif;!important;

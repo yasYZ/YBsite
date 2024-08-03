@@ -19,7 +19,9 @@ window.onclick = function(event) {
 }
 function toggleMenu() {
     var menuUl = document.querySelector(".nav ul");
+    var Search = document.querySelector(".search-box");
     menuUl.classList.toggle("show");
+    Search.classList.toggle("show");
     var close = document.querySelector('.close-btn');
     close.style.display = 'block';
 }
