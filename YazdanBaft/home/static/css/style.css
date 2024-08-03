@@ -225,7 +225,7 @@ header{
     .more{
         margin-top: 40px;
     }
-    .col img{
+    .img-box2{
         width: 250px;
         height: 250px;
     }
@@ -324,14 +324,53 @@ header{
 .cert-row{
     width: 100%;
     overflow: hidden;
-    padding: 40px;
+    padding: 40px 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.border-box{
+    border: solid 2px #a9a9a9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .cert-col{
-    width: 16%;
+    margin: 40px 0;
+    width: 15%;
     display: inline-flex;
 }
 .img-cert{
     width: 100%;
+}
+.cert-btn{
+    border: none;
+    background-color: #2d831b;
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    bottom: 4%;
+    border-radius: 15px;
+    transition: .4s;
+}
+.cert-btn:hover{
+    background-color: #082f0e
+}
+@media screen and (max-width: 1350px){
+    .cert-row{
+        padding: 40px 80px;
+    }
+}
+@media screen and (max-width: 750px) {
+    .cert-row{
+        padding: 40px 40px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .cert-row{
+        padding: 40px 20px;
+    }
 }
 .sale {
 	position: absolute;

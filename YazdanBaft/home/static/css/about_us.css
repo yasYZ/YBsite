@@ -44,12 +44,56 @@
     display: inline-block;
     margin-top: 5px;
     width: 400px;
-    height: 350px;
+    height: 650px;
     background-color: rgb(50, 50, 65);
     color: #ffffff;
     border-radius: 15px;
     text-align: center;
     animation: loadtransformws 3s;
+}
+.call-btn{
+    border: none;
+    background-color: #0e3c92;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    color: white;
+    font-size: 20pt;
+    transition: .2s;
+}
+.call-btn:hover{
+    background-color: #6199ff;
+    color: #303030;
+}
+.map img{
+    width: 100%;
+}
+.map-box{
+    position: relative;
+}
+.map-layer{
+    opacity: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.75);
+}
+.map-layer p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 300px;
+    color: white;
+}
+.map-layer:hover{
+    opacity: 1;
+}
+.map{
+    height: 300px;
+    overflow: hidden;
 }
 @media screen and (max-width: 490px){
     .item-col{
@@ -64,7 +108,8 @@
 }
 .item-col figure{
     font-size: 15pt;
-    height: 250px;
+    height: 80%;
+    position: relative;
 }
 .item-col figure a{
     text-decoration: none;
@@ -85,8 +130,62 @@
     background-color: #0e3c92;
     width: 150px;
     height: 50px;
+    transition: .4s;
 }
 .btn:hover{
+    background-color: #6199ff;
+    color: #303030;
+}
+.logo-sites img{
+    width: 100%;
+
+}
+.logo-sites{
+    position: relative;
+    border: solid 3px;
+    border-radius: 3px;
+    height: 105px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.plus-btn{
+    position: absolute;
+    top: 80%;
+    width: 50px;
+    height: 50px;
+    right: 40%;
+    left: 40%;
+    background-color: #2d831b;
+    border: none;
+    border-radius: 15px;
+    transition: .4s;
+}
+.plus-btn:hover{
+    background-color: #092700;
+    color: white;
+}
+.social-box{
+    width: 100%;
+    text-align: center;
+}
+.social-box a{
+    text-align: center;
+    display: block;!important;
+}
+.social-btn{
+    border: none;
+    border-radius: 35px;
+    font-size: 32pt;
+    background-color: #0e3c92;
+    color: #ffffff;
+    margin: 10px;
+    padding: 5px;
+    width: 140px;
+    height: 140px;
+    transition: .4s;
+}
+.social-btn:hover{
     background-color: #6199ff;
     color: #303030;
 }

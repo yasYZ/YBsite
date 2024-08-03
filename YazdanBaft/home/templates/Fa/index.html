@@ -130,7 +130,7 @@
             {% endfor %}
         </section>
         <!--  our colleagues  -->
-        <h2 class="h2">همکاران ما</h2>
+        <h2 class="h2">مشتریان ما</h2>
         <div class="car-container">
             <section class="carousel-row">
                 {% for item in col %}
@@ -146,35 +146,38 @@
         <!-- certificate -->
         <h2 class="h2">گواهی نامه ها:</h2>
     <a href="/fa/certificate">
-        <section class="cert-row" href="/fa/certificates.html">
-            <article class="cert-col wow bounceInRight">
-                <img class="img-cert" src="/static/images/brsm.jpg">
-            </article>
-            <article class="cert-col wow bounceInRight" data-wow-delay="1s">
-                <img class="img-cert" src="/static/images/naci.png">
-            </article>
-            <article class="cert-col wow bounceInRight" data-wow-delay="2s">
-                <img class="img-cert" src="/static/images/iaf.jpg">
-            </article>
-            <article class="cert-col wow bounceInLeft center" data-wow-delay="2s">
-                <img class="img-cert" src="/static/images/standard.png">
-            </article>
-            <article class="cert-col wow bounceInLeft" data-wow-delay="1s">
-                <img class="img-cert" src="/static/images/iso1.png">
-            </article>
-            <article class="cert-col wow bounceInLeft">
-                <img class="img-cert" src="/static/images/iso2.png">
-            </article>
+        <section class="cert-row">
+            <div class="border-box">
+                <article class="cert-col wow bounceInRight">
+                    <img class="img-cert" src="/static/images/brsm.jpg">
+                </article>
+                <article class="cert-col wow bounceInRight" data-wow-delay="1s">
+                    <img class="img-cert" src="/static/images/naci.png">
+                </article>
+                <article class="cert-col wow bounceInRight" data-wow-delay="2s">
+                    <img class="img-cert" src="/static/images/iaf.jpg">
+                </article>
+                <article class="cert-col wow bounceInLeft center" data-wow-delay="2s">
+                    <img class="img-cert" src="/static/images/standard.png">
+                </article>
+                <article class="cert-col wow bounceInLeft" data-wow-delay="1s">
+                    <img class="img-cert" src="/static/images/iso1.png">
+                </article>
+                <article class="cert-col wow bounceInLeft">
+                    <img class="img-cert" src="/static/images/iso2.png">
+                </article>
+            </div>
+            <button class="cert-btn"><ion-icon name="add-outline"></ion-icon></button>
         </section>
     </a>
-        <button id="scrollBtn"><ion-icon name="arrow-up-circle"></ion-icon></button>
-        <!-- end! -->
+    <button id="scrollBtn"><ion-icon name="arrow-up-circle"></ion-icon></button>
+    <!-- end! -->
+    {% include "Fa/footer.html" %}
+    {% block footer %}
+    {% endblock %}
     <script src="/static/js/wow.min.js"></script>
     <script>
         new WOW().init();
     </script>
-    {% include "Fa/footer.html" %}
-    {% block footer %}
-    {% endblock %}
 </body>
 </html>

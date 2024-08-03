@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/static/css/resource.css">
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/en_styles.css">
+    <link rel="stylesheet" href="/static/css/animate.css">
     <link rel="stylesheet" href="/static/css/alert.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="/static/images/logoyazdan_32x32.ico" type="image/x-icon">
@@ -147,30 +148,37 @@ We have competitive prices and special offers for purchasing large bags. For mor
         <!-- certificate -->
     <a><h2 class="h2">Certificates :</h2></a>
     <a href="/en/certificate">
-        <section class="cert-row" href="/fa/certificates.html">
-            <article class="cert-col wow bounceInRight">
-                <img class="img-cert" src="/static/images/brsm.jpg">
-            </article>
-            <article class="cert-col wow bounceInRight" data-wow-delay="1s">
-                <img class="img-cert" src="/static/images/naci.png">
-            </article>
-            <article class="cert-col wow bounceInRight" data-wow-delay="2s">
-                <img class="img-cert" src="/static/images/iaf.jpg">
-            </article>
-            <article class="cert-col wow bounceInLeft center" data-wow-delay="2s">
-                <img class="img-cert" src="/static/images/standard.png">
-            </article>
-            <article class="cert-col wow bounceInLeft" data-wow-delay="1s">
-                <img class="img-cert" src="/static/images/iso1.png">
-            </article>
-            <article class="cert-col wow bounceInLeft">
-                <img class="img-cert" src="/static/images/iso2.png">
-            </article>
+        <section class="cert-row">
+            <div class="border-box">
+                <article class="cert-col wow bounceInRight">
+                    <img class="img-cert" src="/static/images/brsm.jpg">
+                </article>
+                <article class="cert-col wow bounceInRight" data-wow-delay="1s">
+                    <img class="img-cert" src="/static/images/naci.png">
+                </article>
+                <article class="cert-col wow bounceInRight" data-wow-delay="2s">
+                    <img class="img-cert" src="/static/images/iaf.jpg">
+                </article>
+                <article class="cert-col wow bounceInLeft center" data-wow-delay="2s">
+                    <img class="img-cert" src="/static/images/standard.png">
+                </article>
+                <article class="cert-col wow bounceInLeft" data-wow-delay="1s">
+                    <img class="img-cert" src="/static/images/iso1.png">
+                </article>
+                <article class="cert-col wow bounceInLeft">
+                    <img class="img-cert" src="/static/images/iso2.png">
+                </article>
+            </div>
+            <button class="cert-btn"><ion-icon name="add-outline"></ion-icon></button>
         </section>
     </a>
     {% include "En/footer.html" %}
     {% block footer %}
     {% endblock %}
     <script src="/static/js/car.js"></script>
+    <script src="/static/js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
 </body>
 </html>
