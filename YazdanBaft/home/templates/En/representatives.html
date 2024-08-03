@@ -23,7 +23,7 @@
     <section class="row" style="min-height: 100vh">
         {% for item in represent %}
         <article class="col">
-            <img class="img" src="/{{ item.image }}">
+            <img class="img" src="/{{ item.image }}" alt="{{ item.EN_title }}">
             <figure class="figure">
                 <h2 class="title">{{ item.EN_title }}</h2>
                 <a class="caption" href="tel:{{ item.phone }}">Phone : {{ item.phone }}</a>

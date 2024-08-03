@@ -116,36 +116,35 @@ We have competitive prices and special offers for purchasing large bags. For mor
         <!-- gallery -->
         <h2 class="h2">Production Photos and Videos</h2>
         <section class="gallery-row">
-            {% for item in gallery %}
-                <article class="gallery-col">
-                    <div class="gallery">
-                        <img class="img--" src="/{{ item.file }}" alt="Image 1" onclick="openModal('/{{ item.file }}')">
-                    </div>
+            <article class="gallery-col">
+                <div class="gallery">
+                {% for item in gallery %}
+                    {% if item.is_image %}
+                    <img class="img--" src="/{{ item.file }}" alt="Production-images" onclick="openModal('/{{ item.file }}')">
+                    {% endif %}
+                {% endfor %}
+                </div>
 
-                    <div id="myModal" class="modal">
-                        <div class="content">
-                            <span class="close" onclick="closeModal()">&times;</span>
-                            <img class="modal-content" id="modalImage">
+                <div id="myModal" class="modal modalmain">
+                    <div class="content">
+                        <span class="close" onclick="closeModal()">&times;</span>
+                        <img class="modal-content" id="modalImage">
+                    </div>
+                </div>
+
+                {% for item in gallery %}
+                    {% if item.is_Video %}
+                        <div class="video-container">
+                            <video controls>
+                                <source src="/{{ item.file }}" type="video/mp4">
+                                <!-- webm format -->
+                                <source src="../../static/images/video5963210968329621007.mp4" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
-                    </div>
-
-
-                    <div class="video-container">
-                        <video controls>
-                            <source src="../../static/images/video5963210968329621007.mp4" type="video/mp4">
-                            <!-- شما می‌توانید انواع مختلف فایل‌های ویدیویی را پشتیبانی کنید -->
-                            <source src="../../static/images/video5963210968329621007.mp4" type="video/webm">
-                            Your browser does not support the video tag.
-                        </video>
-                        <video controls>
-                            <source src="../../static/images/Preview.mp4" type="video/mp4">
-                            <!-- شما می‌توانید انواع مختلف فایل‌های ویدیویی را پشتیبانی کنید -->
-                            <source src="../../static/images/Preview.mp4" type="video/webm">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </article>
-            {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </article>
         </section>
         <!--  our colleagues  -->
         <h2 class="h2">our customers</h2>
@@ -164,7 +163,7 @@ We have competitive prices and special offers for purchasing large bags. For mor
         <!-- certificate -->
     <a><h2 class="h2">Certificates :</h2></a>
     <a href="/en/certificate">
-        <section class="cert-row">
+        <section class="cert-row" style="direction: rtl">
             <div class="border-box">
                 <article class="cert-col wow bounceInRight">
                     <img class="img-cert" src="/static/images/brsm.jpg">

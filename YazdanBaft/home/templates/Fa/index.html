@@ -114,36 +114,35 @@
         <!-- gallery -->
         <h2 class="h2">عکس و ویدیو های تولید</h2>
         <section class="gallery-row">
-            {% for item in gallery %}
-                <article class="gallery-col">
-                    <div class="gallery">
-                        <img class="img--" src="/{{ item.file }}" alt="Image 1" onclick="openModal('/{{ item.file }}')">
-                    </div>
+            <article class="gallery-col">
+                <div class="gallery">
+                {% for item in gallery %}
+                    {% if item.is_image %}
+                    <img class="img--" src="/{{ item.file }}" alt="Production-images" onclick="openModal('/{{ item.file }}')">
+                    {% endif %}
+                {% endfor %}
+                </div>
 
-                    <div id="myModal" class="modal modalmain">
-                        <div class="content">
-                            <span class="close" onclick="closeModal()">&times;</span>
-                            <img class="modal-content" id="modalImage">
+                <div id="myModal" class="modal modalmain">
+                    <div class="content">
+                        <span class="close" onclick="closeModal()">&times;</span>
+                        <img class="modal-content" id="modalImage">
+                    </div>
+                </div>
+
+                {% for item in gallery %}
+                    {% if item.is_Video %}
+                        <div class="video-container" style="direction: ltr">
+                            <video controls>
+                                <source src="/{{ item.file }}" type="video/mp4">
+                                <!-- webm format -->
+                                <source src="../../static/images/video5963210968329621007.mp4" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
-                    </div>
-
-
-                    <div class="video-container">
-                        <video controls>
-                            <source src="../../static/images/video5963210968329621007.mp4" type="video/mp4">
-                            <!-- شما می‌توانید انواع مختلف فایل‌های ویدیویی را پشتیبانی کنید -->
-                            <source src="../../static/images/video5963210968329621007.mp4" type="video/webm">
-                            Your browser does not support the video tag.
-                        </video>
-                        <video controls>
-                            <source src="../../static/images/Preview.mp4" type="video/mp4">
-                            <!-- شما می‌توانید انواع مختلف فایل‌های ویدیویی را پشتیبانی کنید -->
-                            <source src="../../static/images/Preview.mp4" type="video/webm">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </article>
-            {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </article>
         </section>
         <!--  our colleagues  -->
         <h2 class="h2">مشتریان ما</h2>

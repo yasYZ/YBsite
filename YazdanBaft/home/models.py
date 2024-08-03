@@ -19,6 +19,8 @@ class represent(models.Model):
 
 class gallery(models.Model):
     file = models.FileField(upload_to='static/gallery/')
+    is_image = models.BooleanField(default=False)
+    is_Video = models.BooleanField(default=False)
 
 
 class ContactUS(models.Model):

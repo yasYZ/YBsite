@@ -26,33 +26,33 @@
                 <figure>
                     <div class="d">
                         <h1 class="title" style="direction: rtl">{{ item.EN_main_title }}</h1>
-                        <img src="/{{ item.picture }}">
+                        <img src="/{{ item.picture }}" alt="{{ item.EN_main_title }}">
                     </div>
                     <p class="title-caption" style="margin-bottom: 30px">{{ item.EN_discription }}</p>
                     <figcaption class="title-caption">{{ item.EN_main_discription }}</figcaption>
                     {% if item.EN_title1 %}
                         <h2 class="secondry-title">{{ item.EN_title1 }}</h2>
-                        {% if item.picture1 %}<img {% if item.left1 and item.right1 %} class="center" {% elif item.left1 %} class="left" {% elif item.right1 %} class="right" {% else %} class="center" {% endif %} src="/{{ item.picture1 }}">{% endif %}
+                        {% if item.picture1 %}<img alt="{{ item.EN_title1 }}-image" {% if item.left1 and item.right1 %} class="center" {% elif item.left1 %} class="left" {% elif item.right1 %} class="right" {% else %} class="center" {% endif %} src="/{{ item.picture1 }}">{% endif %}
                         <figcaption class="caption">{{ item.EN_discription1 }}</figcaption>
                     {% endif %}
                     {% if item.EN_title2 %}
                         <h2 class="secondry-title">{{ item.EN_title2 }}</h2>
-                        {% if item.picture1 %}<img {% if item.left2 and item.right2 %} class="center" {% elif item.left2 %} class="left" {% elif item.right2 %} class="right" {% else %} class="center" {% endif %} src="/{{ item.picture2 }}">{% endif %}
+                        {% if item.picture2 %}<img alt="{{ item.EN_title2 }}-image" {% if item.left2 and item.right2 %} class="center" {% elif item.left2 %} class="left" {% elif item.right2 %} class="right" {% else %} class="center" {% endif %} src="/{{ item.picture2 }}">{% endif %}
                         <figcaption class="caption">{{ item.EN_discription2 }}</figcaption>
                     {% endif %}
                     {% if item.EN_title3 %}
                         <h2 class="secondry-title">{{ item.EN_title3 }}</h2>
-                        {% if item.picture1 %}<img {% if item.left3 and item.right3 %} class="center" {% elif item.left3 %} class="left" {% elif item.right3 %} class="right" {% else %} class="center" {% endif %} src="/{{ item.picture3 }}">{% endif %}
+                        {% if item.picture3 %}<img alt="{{ item.EN_title3 }}-image" {% if item.left3 and item.right3 %} class="center" {% elif item.left3 %} class="left" {% elif item.right3 %} class="right" {% else %} class="center" {% endif %} src="/{{ item.picture3 }}">{% endif %}
                         <figcaption class="caption">{{ item.EN_discription3 }}</figcaption>
                     {% endif %}
                     {% if item.EN_title4 %}
                         <h2 class="secondry-title">{{ item.EN_title4 }}</h2>
-                        {% if item.picture1 %}<img {% if item.left4 and item.right4 %} class="center" {% elif item.left4 %} class="left" {% elif item.right4 %} class="right" {% else %} class="center" {% endif %} src="/{{ item.picture4 }}">{% endif %}
+                        {% if item.picture4 %}<img alt="{{ item.EN_title4 }}-image" {% if item.left4 and item.right4 %} class="center" {% elif item.left4 %} class="left" {% elif item.right4 %} class="right" {% else %} class="center" {% endif %} src="/{{ item.picture4 }}">{% endif %}
                         <figcaption class="caption">{{ item.EN_discription4 }}</figcaption>
                     {% endif %}
                     {% if item.EN_title5 %}
                         <h2 class="secondry-title">{{ item.EN_title5 }}</h2>
-                        {% if item.picture1 %}<img {% if item.left5 and item.right5 %} class="center" {% elif item.left5 %} class="left" {% elif item.right5 %} class="right" {% else %} class="center" {% endif %} src="/{{ item.picture5 }}">{% endif %}
+                        {% if item.picture5 %}<img alt="{{ item.EN_title5 }}-image" {% if item.left5 and item.right5 %} class="center" {% elif item.left5 %} class="left" {% elif item.right5 %} class="right" {% else %} class="center" {% endif %} src="/{{ item.picture5 }}">{% endif %}
                         <figcaption class="caption">{{ item.EN_discription5 }}</figcaption>
                     {% endif %}
                 </figure>
