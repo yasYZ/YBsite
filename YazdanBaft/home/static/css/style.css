@@ -193,7 +193,7 @@ header{
     overflow: hidden;
     border-radius: 10px;
     border: none;
-    margin: 0 auto;
+    margin: 10px auto;
     display: flex;
     justify-content: center;
     align-items: center;
