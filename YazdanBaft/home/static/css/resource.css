@@ -136,15 +136,28 @@ ion-icon:hover {
 .menu ion-icon:hover{
     transform: rotate(90deg);
 }
+#Close{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22pt;
+    color: white;
+}
 .close-btn{
     position: absolute;
     top: 50px;
-    right: 50px;
+    right: -150px;
     z-index: 100;
-    width: 30px;
-    height: 30px;
-    background-color: #1b1b1b;
-    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background: rgb(23, 39, 107);
+    border-radius: 15px;
+    transition: .3s;
+}
+.close-btn:hover{
+    background: rgb(0, 56, 255);
 }
 @media screen and (max-width: 1390px) {
     .nav ul {
@@ -210,7 +223,8 @@ ion-icon:hover {
         width: 20%;
     }
     .close-btn{
-        display: block;
+        right: 50px;
+        display: none;
     }
 }
 #scrollBtn {
