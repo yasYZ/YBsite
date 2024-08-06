@@ -20,6 +20,7 @@
     text-align: center;
     border-radius: 5px;
     animation: loadtransformws 3s;
+    margin-bottom: 15px;
 }
 @media screen and (max-width: 730px){
     .row .col{
@@ -161,7 +162,7 @@
 }
 .content-row .caption{
     text-align: justify;
-    font-size: 15pt;
+    font-size: 18pt;
 }
 .d{
     height: 100%;
@@ -197,7 +198,15 @@
     width: 20%;!important;
 }
 @media screen and (max-width: 800px){
+    .title-caption{
+        font-size: 15pt;
+    }
+    .content-row .caption{
+        text-align: justify;
+        font-size: 15pt;
+    }
     .content-row .title {
+        text-align: right;
         top: 90px;
         font-size: 22pt;
     }
