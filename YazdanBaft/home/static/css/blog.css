@@ -206,10 +206,15 @@
         justify-content: center;
         align-items: center;
     }
-    .content-col img{
+    .content-col .d img{
         margin-top: 80px;
         height: 100%;
         width: auto;
+    }
+    .content-col img{
+        margin-top: 80px;
+        width: 100%;
+        height: auto;
     }
     .left, .right, .center{
         margin: 0;
