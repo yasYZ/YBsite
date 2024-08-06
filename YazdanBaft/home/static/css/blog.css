@@ -166,13 +166,13 @@
 .d{
     height: 100%;
     width: 100%;
-    position: relative
+    position: relative;
+    overflow: hidden;
 }
 .d img{
     float: right;
     width: 80%;
     height: auto;
-    margin-top: -50px;
     margin-bottom: 150px;
     border-radius: 15px;
 }
@@ -199,12 +199,17 @@
 @media screen and (max-width: 800px){
     .content-row .title {
         top: 90px;
-        font-size: 15pt;
+        font-size: 22pt;
+    }
+    .d{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .content-col img{
         margin-top: 80px;
-        width: 100%;
-        height: auto;
+        height: 100%;
+        width: auto;
     }
     .left, .right, .center{
         margin: 0;
@@ -215,7 +220,7 @@
 }
 @media screen and (max-width: 420px) {
     .content-row .title {
-        font-size: 7pt;
+        font-size: 20pt;
         left: 0;
         right: 0;
     }
