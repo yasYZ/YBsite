@@ -132,6 +132,7 @@ ion-icon:hover {
 .nav .menu{
     font-size: 2.5em;
     display: none;
+    z-index: 150;
 }
 .menu ion-icon:hover{
     transform: rotate(90deg);
@@ -176,8 +177,9 @@ ion-icon:hover {
         display: flex;
     }
     .search-box.show {
-        display: inline-block;
+        display: block;
         position: absolute;
+        top: 10%;
         right: 30%;
         left: 30%;
         z-index: 1000;
@@ -199,12 +201,14 @@ ion-icon:hover {
         font-size: 20pt;
     }
     .nav .logo{
+        position: absolute;
+        right: 0;
+        left: 0;
         margin: 0;
-        flex: 3;
-        width: 170px;
-        display: flex;
+        width: 100%;
         justify-content: center;
         align-items: center;
+        display: flex;
     }
     .nav .logo a img {
         margin: 0 auto;
@@ -218,12 +222,14 @@ ion-icon:hover {
         width: 100%;
         padding-right: 5px;
         padding-left: 5px;
+        margin: 0 auto;
     }
     .search-box button {
         width: 20%;
     }
     .close-btn{
-        right: 50px;
+        z-index: 1000;
+        right: 10px;
         display: none;
     }
 }

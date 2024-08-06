@@ -26,6 +26,7 @@
     text-align: center;
     border-radius: 5px;
     animation: loadtransformws 3s;
+    margin-bottom: 15px;
 }
 .col-p:hover{
     transform: scale(1.04);
@@ -37,7 +38,7 @@
 .img{
     overflow: hidden;
     height: 260px;
-    width: 400px;
+    max-width: 400px;
     background-color: rgb(23, 39, 107);
     border-radius: 10px 10px 50% 50%;
 }
